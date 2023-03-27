@@ -36,6 +36,7 @@ jobs:
 
       - name: Build
         run: |
+          npm i
           npm run build
 
       - name: Setup Pages
