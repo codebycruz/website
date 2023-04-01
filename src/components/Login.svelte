@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { Button, TextInput } from "@svelteuidev/core";
 	import { currentUser, pb } from "../lib/pocketbase";
 
 	let username: string;
@@ -15,7 +16,7 @@
 				.create({username, password, passwordConfirm: password});
 
 			await login();
-		} catch (err) {
+		} catch (err: any) {
 			console.error(err.data);
 		}
 	}
@@ -27,21 +28,20 @@
 
 {#if $currentUser}
 	<p> Signed in as {$currentUser.username} </p>
-	<button on:click={signOut}>Sign out</button>
+	<Button on:click={signOut}>Sign out</Button>
 {:else}
-	<form on:submit|preventDefault>
-		<input
-			bind:value={username}
-			placeholder="Username"
-			type="text"
-		/>
-		<input
-			bind:value={password}
-			placeholder="Password"
-			type="password"
-		/>
+	<TextInput
+		bind:value={username}
+		placeholder="Username"
+		type="text"
+	/>
 
-		<button on:click={signUp}>Sign up</button>
-		<button on:click={login}>Login</button>
-	</form>
+	<TextInput
+		bind:value={password}
+		placeholder="Password"
+		type="password"
+	/>
+
+	<Button on:click={signUp}>Sign up</Button>
+	<Button on:click={login}>Login</Button>
 {/if}
