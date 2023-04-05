@@ -5,9 +5,8 @@
 
 <Navbar />
 <slot />
-<Footer />
 
-<style>
+<style lang="scss">
 	:global(body) {
 		margin: 0;
 		padding: 0;

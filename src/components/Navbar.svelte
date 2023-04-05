@@ -1,27 +1,33 @@
 <script lang="ts">
 	import Icon from "@iconify/svelte";
+
+	let width: number;
 </script>
 
+<svelte:window bind:innerWidth={width} />
+
 <div class="navbar">
-	<ul>
-		<li class="logo">
-			codebycruz
-		</li>
+	<div class="logo">
+		bycruz
+	</div>
 
-		<li class="sep" />
+	{#if width <= 700}
+		<div>🚧</div>
+	{:else}
+		<div class="sep" />
 
-		<li class="active">
+		<div>
 			<a href="/">Home</a>
-		</li>
+		</div>
 
-		<li>
-			<a href="/">Projects</a>
-		</li>
+		<div class="active">
+			<a href="/projects">Projects</a>
+		</div>
 
-		<li>
-			<a href="/">Resume</a>
-		</li>
-	</ul>
+		<div>
+			<a href="/resume">Resume</a>
+		</div>
+	{/if}
 </div>
 
 <style lang="scss">
@@ -30,13 +36,13 @@
 	$nav-bg: #363BAC;
 
 	$nav-font: "Inter";
-	$nav-font-size: 4vh;
+	$nav-font-size: 40px; // 4vh
 
-	$nav-height: 10vh; // 112 / 1024 = ~10vh
+	$nav-height: 112px; // 112 / 1024 = ~10vh
 
 	$nav-sep: #31358B;
-	$nav-sep-height: 2vh;
-	$nav-sep-width: 0.5vw;
+	$nav-sep-height: 70px; // 2vh
+	$nav-sep-width: 12px; // 0.5vw
 
 	$nav-inactive: rgba(255, 255, 255, 1);
 	$nav-active: rgba(255, 255, 255, 0.5);
@@ -48,44 +54,33 @@
 		font-family: $nav-font;
 		font-size: $nav-font-size;
 
-		overflow-x: hidden;
+		display: flex;
+		flex-direction: row;
+		align-items: center; // Center height
 
-		ul {
-			padding: 0;
-			margin: 0;
+		div {
+			margin-right: 3vw;
+			color: $nav-inactive;
 
-			li {
-				display: inline-block;
+			a {
+				text-decoration: none;
+				color: $nav-inactive;
+			}
 
-				// Todo: Should probably use margin, not padding.
-				padding-top: math.div($nav-height, 2) - math.div($nav-font-size, 2);
-				margin-right: 3vw; // 53 / 1440 = ~3 vw
+			&.active a {
+				color: $nav-active;
+			}
 
-				a {
-					text-decoration: none;
-					color: $nav-inactive;
-				}
+			&.sep {
+				background-color: $nav-sep;
 
-				&.active a {
-					color: $nav-active;
-				}
+				width: $nav-sep-width;
+				height: $nav-sep-height;
+			}
 
-				&.sep {
-					background-color: $nav-sep;
-
-					width: $nav-sep-width;
-					height: $nav-sep-height;
-
-					position: relative; // Move halfway downward so it is 2vh tall both up and down
-					top: math.div($nav-sep-height, 2);
-				}
-
-				&.logo {
-					padding-left: 5vw; // 71/1440 = ~5 vw
-					padding-right: 5vw;
-
-					color: $nav-inactive;
-				}
+			&.logo { // todo: left padding here should be &::before
+				padding-left: 5vw; // 71/1440 = ~5 vw
+				padding-right: 5vw;
 			}
 		}
 	}

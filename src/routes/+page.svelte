@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from "svelte"
 	import { fade } from "svelte/transition";
 	import Login from "../components/Login.svelte";
 
@@ -13,18 +14,23 @@
 	}
 
 	setInterval(shuffleHello, 8000);
+
+	let ready: boolean;
+	onMount(() => ready = true);
 </script>
 
 <div class="home">
-	{#key text}
-		<h1 in:fade={ { duration: 2000 } }>
-			{text}
-		</h1>
-	{/key}
+	{#if ready}
+		{#key text}
+			<h1 in:fade={ { duration: 2000 } }>
+				{text}
+			</h1>
+		{/key}
 
-	<h2 in:fade>
-		This is my web page.
-	</h2>
+		<h2 in:fade>
+			This is my web page.
+		</h2>
+	{/if}
 </div>
 
 <style lang="scss">
