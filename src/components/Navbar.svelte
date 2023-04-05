@@ -2,13 +2,18 @@
 	import Icon from "@iconify/svelte";
 
 	let width: number;
+
+	import { page } from "$app/stores";
+
+	let route: string;
+	$: route = $page.url.pathname;
 </script>
 
 <svelte:window bind:innerWidth={width} />
 
 <div class="navbar">
 	<div class="logo">
-		bycruz
+		codebycruz
 	</div>
 
 	{#if width <= 700}
@@ -16,15 +21,15 @@
 	{:else}
 		<div class="sep" />
 
-		<div>
+		<div class={ route == "/" ? "active" : "" }>
 			<a href="/">Home</a>
 		</div>
 
-		<div class="active">
+		<div class={ route == "/projects" ? "active" : "" }>
 			<a href="/projects">Projects</a>
 		</div>
 
-		<div>
+		<div class={ route == "/resume" ? "active" : "" }>
 			<a href="/resume">Resume</a>
 		</div>
 	{/if}
@@ -36,12 +41,12 @@
 	$nav-bg: #363BAC;
 
 	$nav-font: "Inter";
-	$nav-font-size: 40px; // 4vh
+	$nav-font-size: 30px; // 4vh
 
-	$nav-height: 112px; // 112 / 1024 = ~10vh
+	$nav-height: 80px; // 112 / 1024 = ~10vh
 
 	$nav-sep: #31358B;
-	$nav-sep-height: 70px; // 2vh
+	$nav-sep-height: 50px; // 2vh
 	$nav-sep-width: 12px; // 0.5vw
 
 	$nav-inactive: rgba(255, 255, 255, 1);
