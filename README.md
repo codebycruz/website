@@ -1,5 +1,3 @@
-# bycruz
+# codebycruz
 
-My website. Under construction.
-
-Designed with [Figma](https://www.figma.com) and built with [SvelteKit](https://kit.svelte.dev)
+My website made with React + Tailwind + Next.js.
