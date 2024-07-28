@@ -5,7 +5,6 @@ import { IoMenu, IoDocumentText, IoFlask, IoAt, IoAtCircle, IoFlaskOutline, IoDo
 const LINKS = [
 	{ href: "/resume", disp: "Resume", icon: IoDocumentText },
 	{ href: "/projects", disp: "Projects", icon: IoFlask },
-	// { href: "/contact", disp: "Contact", icon: IoAtCircle }
 ];
 
 function Logo() {
@@ -20,7 +19,7 @@ function Logo() {
 
 export default function Navbar() {
 	return (
-		<div className="bg-gradient-to-r from-van_dyke-400 to-van_dyke-600 drop-shadow-2xl h-24 px-8 items-center text-white flex flex-row sticky top-0">
+		<div className="z-50 bg-gradient-to-r from-van_dyke-400 to-van_dyke-600 drop-shadow-2xl h-20 px-8 items-center text-white flex flex-row sticky top-0">
 			<div className="md:hidden absolute">
 				<Menu>
 					<MenuButton>
@@ -48,7 +47,7 @@ export default function Navbar() {
 
 				<div className="hidden md:flex flex-row items-center gap-2 h-full">
 					{LINKS.map(l => (
-						<a key={l.href} href={l.href} className="flex flex-row gap-2 items-center transition-all duration-300 shadow-xl bg-sea_green-600 active:shadow-none text-white/85 hover:text-white py-4 px-4 rounded-full">
+						<a key={l.href} href={l.href} className="flex flex-row gap-2 items-center transition-all duration-300 shadow-2xl bg-celadon-300 active:shadow-none active:bg-celadon-400 text-white py-4 px-4 rounded-full">
 							{l.disp}
 							<l.icon />
 						</a>
