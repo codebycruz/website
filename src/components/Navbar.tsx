@@ -9,7 +9,7 @@ const LINKS = [
 
 function Logo() {
 	return (
-		<div className="text-white text-xl">
+		<div className="text-white font-bold [text-shadow:_0_2px_0_rgb(0_0_0_/20%)] text-xl">
 			<a href="/">
 				codebycruz
 			</a>
@@ -19,7 +19,7 @@ function Logo() {
 
 export default function Navbar() {
 	return (
-		<div className="z-50 bg-gradient-to-r from-van_dyke-400 to-van_dyke-600 drop-shadow-2xl h-20 px-8 items-center text-white flex flex-row sticky top-0">
+		<div className="z-10 drop-shadow-2xl bg-van_dyke-500 backdrop-blur-sm border-b border-b-white/30 h-20 px-8 items-center text-white flex flex-row sticky top-0">
 			<div className="md:hidden absolute">
 				<Menu>
 					<MenuButton>
@@ -27,12 +27,13 @@ export default function Navbar() {
 					</MenuButton>
 
 					<MenuItems
-						className="flex flex-col bg-white text-black rounded-lg"
+						transition
+						className="z-20 drop-shadow-2xl flex flex-col bg-white text-black rounded-lg"
 						anchor="bottom start"
 					>
 						{LINKS.map(l => (
 							<MenuItem key={l.href}>
-								<a href={l.href} className="rounded-lg flex flex-row items-center gap-2 px-4 py-2 hover:bg-black/5">
+								<a href={l.href} className="rounded-lg font-medium flex flex-row items-center gap-2 px-6 py-3 hover:bg-black/5">
 									{l.disp}
 									<l.icon className="text-black/80" />
 								</a>
@@ -47,7 +48,7 @@ export default function Navbar() {
 
 				<div className="hidden md:flex flex-row items-center gap-2 h-full">
 					{LINKS.map(l => (
-						<a key={l.href} href={l.href} className="flex flex-row gap-2 items-center transition-all duration-300 shadow-2xl bg-celadon-300 active:shadow-none active:bg-celadon-400 text-white py-4 px-4 rounded-full">
+						<a key={l.href} href={l.href} className="font-medium flex flex-row gap-2 items-center transition-all duration-300 shadow-2xl bg-celadon-300 active:shadow-none active:bg-celadon-400 text-white py-4 px-4 rounded-full">
 							{l.disp}
 							<l.icon />
 						</a>
