@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="400"
+   height="400"
+   viewBox="0 0 400 400"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="icon_nobg_inverted.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   inkscape:export-filename="alpha_circle.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#999999"
+     borderopacity="1"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="1.2217362"
+     inkscape:cx="163.29221"
+     inkscape:cy="187.84743"
+     inkscape:window-width="1536"
+     inkscape:window-height="792"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer2"
+     inkscape:export-bgcolor="#b3b3b300" />
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="3.4782608 : 114.43478 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="427.82609 : 114.43478 : 1"
+       inkscape:persp3d-origin="203.47826 : 47.768113 : 1"
+       id="perspective1" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath2">
+      <ellipse
+         style="fill:#000000;stroke-width:1.0097"
+         id="circle2"
+         cx="200.0002"
+         cy="199.99982"
+         rx="200.0002"
+         ry="199.99982"
+         transform="matrix(0.9999788,-0.0065122,0.00636252,0.99997976,0,0)" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3">
+      <ellipse
+         style="fill:#000000;stroke-width:1.0097"
+         id="circle3"
+         cx="200.0005"
+         cy="199.99953"
+         rx="200.0005"
+         ry="199.99953"
+         transform="matrix(0.99997803,-0.00662861,0.00625076,0.99998046,0,0)" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath4">
+      <circle
+         style="fill:#000000;stroke-width:1.0097"
+         id="circle4"
+         cx="200"
+         cy="200"
+         r="200" />
+    </clipPath>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Invert"
+       id="filter37"
+       x="-0.0067324353"
+       y="-0.0066832221"
+       width="1.0134187"
+       height="1.013387">
+      <feColorMatrix
+         type="hueRotate"
+         values="180"
+         result="color1"
+         id="feColorMatrix36" />
+      <feColorMatrix
+         values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 -0.21 -0.72 -0.07 2 0 "
+         result="color2"
+         id="feColorMatrix37" />
+    </filter>
+    <filter
+       style="color-interpolation-filters:sRGB;"
+       inkscape:label="Invert"
+       id="filter39"
+       x="0"
+       y="0"
+       width="1"
+       height="1">
+      <feColorMatrix
+         type="hueRotate"
+         values="180"
+         result="color1"
+         id="feColorMatrix38" />
+      <feColorMatrix
+         values="-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 -0.21 -0.72 -0.07 2 0 "
+         result="color2"
+         id="feColorMatrix39" />
+    </filter>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="display:inline" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2">
+    <ellipse
+       style="fill:#e0e0e0;fill-opacity:1;fill-rule:evenodd;stroke-width:1.08502;filter:url(#filter39)"
+       id="moon"
+       cx="201.24626"
+       cy="198.66989"
+       rx="90.000221"
+       ry="89.999779"
+       transform="matrix(0.99997803,0.00662863,-0.00625074,0.99998046,0,0)"
+       clip-path="url(#clipPath3)" />
+    <path
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:3.69352;stroke-linecap:round;stroke-dasharray:11.0805, 11.0805;stroke-dashoffset:0;stroke-opacity:0.59225094;marker-start:url(#Triangle);filter:url(#filter37)"
+       id="outline"
+       transform="matrix(0.9999788,0.00651221,-0.00636251,0.99997976,0,0)"
+       sodipodi:type="arc"
+       sodipodi:cx="203.68033"
+       sodipodi:cy="198.67448"
+       sodipodi:rx="140.62128"
+       sodipodi:ry="138.15065"
+       sodipodi:start="0.73898991"
+       sodipodi:end="6.0146004"
+       sodipodi:open="true"
+       sodipodi:arc-type="arc"
+       d="M 307.62044,291.7247 A 140.62128,138.15065 0 0 1 137.86088,320.75762 140.62128,138.15065 0 0 1 66.930753,166.47987 140.62128,138.15065 0 0 1 201.3333,60.543078 140.62128,138.15065 0 0 1 339.25996,162.01381"
+       inkscape:label="outline"
+       clip-path="url(#clipPath2)" />
+  </g>
+</svg>
