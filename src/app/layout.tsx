@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body>
+			<body className="bg-van_dyke-200 text-white">
 				<Navbar />
 				{children}
 				<Footer />
