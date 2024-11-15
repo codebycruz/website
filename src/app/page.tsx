@@ -35,35 +35,29 @@ export default function Home() {
 	return (
 		<>
 			<div className="bg-van_dyke-200 flex flex-row justify-center p-12 border-b border-b-neutral-500">
-				<div className="flex flex-row items-center h-full gap-12 w-2/3 max-w-5xl">
-					<div className="flex flex-col items-center gap-4 w-1/2">
-						<div className="text-celadon-300 transition text-7xl font-semibold hover:[text-shadow:_0_1px_0_rgb(255_0_0_/_40%)]">
+				<div className="flex flex-row items-center h-full gap-12 w-full xl:w-2/3 max-w-5xl">
+					<div className="flex flex-col items-center gap-4 w-full lg:w-1/2">
+						<div className="text-celadon-300 text-7xl font-semibold">
 							Hello!
 						</div>
 
-						<div className="text-4xl text-white">
+						<div className="text-4xl text-white text-nowrap">
 							Welcome to my website.
 						</div>
 					</div>
 
-					<div className="h-96 border-y border-y-white w-1/2 flex flex-col gap-10 px-2 py-10">
+					<div className="h-96 border-y border-y-white w-1/2 hidden md:flex flex-col gap-10 px-2 py-10">
 						<Card
-							title="Welcome!"
-							desc="My first post on the new website. Introduction to how I expect to run this blog, and maybe a few technical details on the website."
+							title="👋 Welcome!"
+							desc="My first post on the new website. Introduction to how I expect to run this blog and why you might want to tune in."
 							href="/blog/welcome"
 							new
-						/>
-
-						<Card
-							title="Dynamic Assembly Using DASM"
-							desc="A brief introduction to my latest project, dasm."
-							href="/blog/dasm"
 						/>
 					</div>
 				</div>
 			</div>
 
-			<div className="bg-van_dyke-500 p-8 text-white w-full flex flex-col items-center">
+			<div className="p-8 text-white w-full flex flex-col items-center">
 				<div className="flex flex-row gap-8 justify-evenly max-w-screen-2xl w-full">
 					<div className="flex flex-col gap-4 max-w-sm">
 						<div className="text-celadon-300 text-xl font-semibold">
@@ -98,7 +92,7 @@ export default function Home() {
 								href="https://github.com/DvvCz"
 								className="inline underline text-nowrap"
 							>
-								<SiGithub className="mr-px inline" /> Github
+								<SiGithub className="mr-px inline" /> GitHub
 							</a>
 							, as well as managing community issues that come
 							with them.
@@ -183,22 +177,22 @@ export default function Home() {
 				</div>
 			</div>
 
-			<div className="bg-white text-black/60 p-8 flex flex-col items-center">
+			<div className="p-8 flex border-t border-t-neutral-500 flex-col items-center">
 				<div className="max-w-screen-lg w-full">
-					<div className="text-lg text-celadon-200 font-semibold">
+					<div className="text-lg text-celadon-300 font-semibold">
 						How can you contact me?
 					</div>
 
-					<hr className="w-1/3 my-4 border-black/40" />
+					<hr className="w-1/3 my-4 border-white" />
 
 					<div className="flex flex-col gap-2 w-full">
 						<span>
-							For business inquiries, please refer to{" "}
+							For business inquiries, please reach me at{" "}
 							<a
-								href="mailto:codebycruz@gmail.com"
+								href="mailto:david@codebycruz.com"
 								className="underline"
 							>
-								codebycruz@gmail.com.
+								david@codebycruz.com
 							</a>
 						</span>
 

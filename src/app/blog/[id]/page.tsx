@@ -14,7 +14,11 @@ let nth_header = 0;
 marked.use({
 	renderer: {
 		space() {
-			return "<br/>";
+			return `<br/>`;
+		},
+
+		blockquote({ tokens }) {
+			return `${this.parser.parseInline(tokens)}`;
 		},
 
 		paragraph({ tokens }) {
@@ -22,10 +26,18 @@ marked.use({
 		},
 
 		heading({ tokens, depth }) {
-			const size = ["", "text-3xl", "text-2xl"][depth] ?? "text-xl";
+			const size = ["", "text-4xl", "text-3xl"][depth] ?? "text-2xl";
 			const pad = ["", "mb-6", "mb-4"][depth] ?? "mb-2";
+			const color =
+				[
+					"",
+					"text-white",
+					"text-blue-400",
+					"text-yellow-300",
+					"text-red-300",
+				][depth] ?? "text-white";
 
-			return `<h${depth} class="font-bold ${size} ${pad} ${nth_header++ > 0 ? "mt-9" : ""}">${this.parser.parseInline(tokens)}</h${depth}>`;
+			return `<h${depth} class="font-serif font-bold ${color} ${size} ${pad} ${nth_header++ > 0 ? "mt-4" : ""}">${this.parser.parseInline(tokens)}</h${depth}>`;
 		},
 
 		link({ tokens, href }) {

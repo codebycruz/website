@@ -17,20 +17,18 @@ const LINKS = [
 
 function Logo() {
 	return (
-		<div className="text-white font-bold [text-shadow:_0_2px_0_rgb(0_0_0_/20%)] text-xl">
-			<a href="/">
-				<img
-					src="/icon_nobg.svg"
-					className="w-12 object-contain hover:bg-celadon-300 transition duration-300 rounded-full"
-				/>
-			</a>
-		</div>
+		<a href="/">
+			<img
+				src="/icon_nobg.svg"
+				className="w-12 object-contain transition duration-300 rounded-full"
+			/>
+		</a>
 	);
 }
 
 export default function Navbar() {
 	return (
-		<div className="z-10 drop-shadow-2xl border-b border-b-neutral-500 h-20 px-8 items-center text-white flex flex-row top-0">
+		<div className="border-b border-b-neutral-500 h-20 px-8 items-center flex flex-row">
 			<div className="md:hidden absolute">
 				<Menu>
 					<MenuButton>
@@ -42,8 +40,8 @@ export default function Navbar() {
 						className="z-20 drop-shadow-2xl flex flex-col bg-white text-black rounded-lg"
 						anchor="bottom start"
 					>
-						{LINKS.map((l) => (
-							<MenuItem key={l.href}>
+						{LINKS.map((l, i) => (
+							<MenuItem key={i}>
 								<a
 									href={l.href}
 									className="rounded-lg font-medium flex flex-row items-center gap-2 px-6 py-3 hover:bg-black/5"
@@ -61,9 +59,9 @@ export default function Navbar() {
 				<Logo />
 
 				<div className="hidden md:flex flex-row items-center gap-2 h-full">
-					{LINKS.map((l) => (
+					{LINKS.map((l, i) => (
 						<a
-							key={l.href}
+							key={i}
 							href={l.href}
 							className="font-medium flex flex-row gap-2 items-center transition-all duration-300 shadow-2xl active:shadow-none hover:bg-celadon-300 text-white py-4 px-4"
 						>
