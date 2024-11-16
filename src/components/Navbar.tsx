@@ -1,18 +1,10 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
-
-import {
-	IoMenu,
-	IoDocumentText,
-	IoFlask,
-	IoAt,
-	IoAtCircle,
-	IoFlaskOutline,
-	IoDocumentTextOutline,
-} from "react-icons/io5";
+import { IoMenu, IoDocumentText, IoFlask, IoNewspaper } from "react-icons/io5";
 
 const LINKS = [
-	{ href: "/resume", disp: "Resume", icon: IoDocumentText },
 	{ href: "/projects", disp: "Projects", icon: IoFlask },
+	{ href: "/blog", disp: "Blog", icon: IoNewspaper },
+	{ href: "/resume", disp: "Resume", icon: IoDocumentText },
 ];
 
 function Logo() {

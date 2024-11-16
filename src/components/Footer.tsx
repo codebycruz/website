@@ -2,11 +2,16 @@ import {
 	IoLogoGithub,
 	IoLogoLinkedin,
 	IoLogoStackoverflow,
-	IoLogoTwitter,
 } from "react-icons/io5";
 
+const IoLogoX = () => <span className="align-text-top">𝕏</span>;
+
 const SOCIALS = [
-	{ label: "Twitter", icon: IoLogoTwitter, href: "https://x.com/codebycruz" },
+	{
+		label: "X",
+		icon: IoLogoX,
+		href: "https://x.com/codebycruz",
+	},
 	{
 		label: "Linkedin",
 		icon: IoLogoLinkedin,
@@ -22,12 +27,8 @@ const SOCIALS = [
 
 export default function Footer() {
 	return (
-		<div className="bg-celadon-200 text-white flex flex-col gap-4 mt-auto items-center w-full p-8">
-			<div className="text-md font-semibold">
-				© {new Date().getFullYear()} David Cruz
-			</div>
-
-			<div className="flex flex-row gap-8 text-2xl">
+		<div className="bg-celadon-200 text-white flex flex-col gap-4 mt-auto items-center w-full p-8 py-10">
+			<div className="flex flex-row items-center gap-8 text-2xl">
 				{SOCIALS.map((s, i) => (
 					<a
 						key={i}

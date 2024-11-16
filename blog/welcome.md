@@ -1,4 +1,5 @@
 ---
+title: Welcome
 author: David Cruz
 published: 2024-11-13
 ---

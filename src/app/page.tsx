@@ -202,7 +202,7 @@ export default function Home() {
 								href="https://x.com/codebycruz"
 								className="underline"
 							>
-								<SiTwitter className="inline" /> (@codebycruz)
+								𝕏 (@codebycruz)
 							</a>
 						</span>
 					</div>
