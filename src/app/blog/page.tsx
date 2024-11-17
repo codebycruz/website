@@ -1,4 +1,4 @@
-import { Post } from "./[id]/page";
+import Post from "@/components/Post";
 import { getPosts, readPost } from "@/lib/blog";
 
 const PATHS = await getPosts();

@@ -1,7 +1,3 @@
-"use server";
-
-import { FaGithub } from "react-icons/fa";
-import { GiWoodenCrate } from "react-icons/gi";
 import dedent from "dedent";
 import { markdownToHTML } from "./markdown";
 

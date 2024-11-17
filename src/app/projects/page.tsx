@@ -1,5 +1,3 @@
-"use server";
-
 import { getProjects } from "@/lib/projects";
 import { Carousel } from "./carousel";
 

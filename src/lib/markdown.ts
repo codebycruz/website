@@ -1,5 +1,3 @@
-"use server";
-
 import { marked } from "marked";
 import hljs from "highlight.js/lib/core";
 import "highlight.js/styles/atom-one-dark.css";
