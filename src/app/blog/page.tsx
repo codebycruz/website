@@ -29,8 +29,9 @@ export default async function Blog() {
 				{SORTED_POSTS.map((p, i) => (
 					<div key={i} className="relative">
 						<Post
-							data={p.post.data}
-							content={p.post.content}
+							markdown={p.post.content}
+							published={p.post.data.published}
+							author={p.post.data.author}
 							className="rounded-lg p-8"
 							mdClassName="max-h-56 overflow-hidden"
 						/>

@@ -2,18 +2,20 @@ import { getPosts, readPost } from "@/lib/blog";
 import { markdownToHTML } from "@/lib/markdown";
 export { getPosts as generateStaticParams };
 
-export async function Post(
-	props: Awaited<ReturnType<typeof readPost>> & {
-		className?: string;
-		innerClassName?: string;
-		mdClassName?: string;
-	},
-) {
-	const md = await markdownToHTML(props.content);
-	const word_count = props.content.split(" ").length;
+export async function Post(props: {
+	markdown: string;
+	published?: Date;
+	author?: string;
+
+	className?: string;
+	innerClassName?: string;
+	mdClassName?: string;
+}) {
+	const md = await markdownToHTML(props.markdown);
+	const word_count = props.markdown.split(" ").length;
 	const min_to_read = Math.ceil((1 / 225) * word_count);
 
-	const pub = props.data.published;
+	const pub = props.published;
 	const pubStr = pub
 		? pub.toLocaleDateString("en-US", {
 				weekday: "long",
@@ -27,7 +29,7 @@ export async function Post(
 		<div className={`flex flex-col gap-4 ${props.className}`}>
 			<div className="flex flex-row gap-2 justify-between w-full">
 				<div className="flex flex-col text-lg">
-					<span>By {props.data.author ?? "David Cruz"}</span>
+					<span>By {props.author ?? "David Cruz"}</span>
 					<span className="text-base text-neutral-300">
 						✍️ {pubStr}
 					</span>
@@ -55,7 +57,12 @@ export default async function Blog(props: { params: { id: string } }) {
 
 	return (
 		<div className="flex flex-col my-12 mx-24 gap-8 items-center min-h-screen">
-			<Post data={data} content={content} className="w-full" />
+			<Post
+				markdown={content}
+				published={data.published}
+				author={data.author}
+				className="w-full"
+			/>
 		</div>
 	);
 }

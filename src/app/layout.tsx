@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 
 import type { Metadata } from "next";
 import "./globals.css";
-import "@glidejs/glide/dist/css/glide.core.min.css";
 
 export const metadata: Metadata = {
 	title: "codebycruz",

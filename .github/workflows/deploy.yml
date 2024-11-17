@@ -46,7 +46,7 @@ jobs:
         run: bun i
 
       - name: Build with Next.js
-        run: NODE_ENV=Production bunx --bun next build
+        run: bunx --bun next build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
