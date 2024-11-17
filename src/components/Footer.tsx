@@ -1,28 +1,22 @@
-import {
-	IoLogoGithub,
-	IoLogoLinkedin,
-	IoLogoStackoverflow,
-} from "react-icons/io5";
-
-const IoLogoX = () => <span className="align-text-top">𝕏</span>;
+import { FaGithub, FaLinkedin, FaStackOverflow } from "react-icons/fa";
 
 const SOCIALS = [
 	{
 		label: "X",
-		icon: IoLogoX,
+		icon: () => <span className="align-text-top">𝕏</span>,
 		href: "https://x.com/codebycruz",
 	},
 	{
 		label: "Linkedin",
-		icon: IoLogoLinkedin,
+		icon: FaLinkedin,
 		href: "https://linkedin.com/in/david-cruz-77243631b/",
 	},
 	{
 		label: "Stackoverflow",
-		icon: IoLogoStackoverflow,
+		icon: FaStackOverflow,
 		href: "https://stackoverflow.com/users/19732164/oncelock",
 	},
-	{ label: "Github", icon: IoLogoGithub, href: "https://github.com/DvvCz" },
+	{ label: "Github", icon: FaGithub, href: "https://github.com/DvvCz" },
 ];
 
 export default function Footer() {

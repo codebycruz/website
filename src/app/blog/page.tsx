@@ -1,6 +1,5 @@
 import { Post } from "./[id]/page";
 import { getPosts, readPost } from "@/lib/blog";
-import Link from "next/link";
 
 const PATHS = await getPosts();
 const POSTS = await Promise.all(
@@ -28,9 +27,8 @@ export default async function Blog() {
 			</span>
 			<div className="flex flex-col gap-16">
 				{SORTED_POSTS.map((p, i) => (
-					<div className="relative">
+					<div key={i} className="relative">
 						<Post
-							key={i}
 							data={p.post.data}
 							content={p.post.content}
 							className="rounded-lg p-8"

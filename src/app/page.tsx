@@ -7,7 +7,6 @@ import {
 	SiReact,
 	SiNextdotjs,
 	SiFigma,
-	SiTwitter,
 } from "react-icons/si";
 
 function Card(props: {
@@ -76,7 +75,7 @@ export default function Home() {
 							</a>{" "}
 							I've been heavily involved in the study and
 							community of Computer Science / Software Engineering
-							for over 6 years as my passion.
+							for the past 6 years as my passion.
 						</div>
 
 						<div>

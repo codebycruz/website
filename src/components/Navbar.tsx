@@ -29,7 +29,7 @@ export default function Navbar() {
 
 					<MenuItems
 						transition
-						className="z-20 drop-shadow-2xl flex flex-col bg-white text-black rounded-lg"
+						className="z-20 drop-shadow-2xl flex flex-col bg-van_dyke-200 border border-white rounded-lg"
 						anchor="bottom start"
 					>
 						{LINKS.map((l, i) => (
@@ -39,7 +39,7 @@ export default function Navbar() {
 									className="rounded-lg font-medium flex flex-row items-center gap-2 px-6 py-3 hover:bg-black/5"
 								>
 									{l.disp}
-									<l.icon className="text-black/80" />
+									<l.icon />
 								</a>
 							</MenuItem>
 						))}
