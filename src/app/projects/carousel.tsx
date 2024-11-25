@@ -103,7 +103,7 @@ export function Carousel(props: { projects: ProjectHTML[] }) {
 									/>
 								</div>
 
-								<div className="lg:w-full bottom-0 my-4 flex flex-col gap-2 lg:flex-row lg:justify-between lg:p-4">
+								<div className="lg:w-full bottom-0 my-4 flex flex-col gap-2 lg:flex-row lg:justify-between">
 									<div className="w-fit flex flex-row items-center line-clamp-1 text-sm max-w-screen-sm lg:text-lg text-neutral-200 gap-2 rounded-full bg-neutral-800 p-2 px-4">
 										<FaTag className="text-lg inline" />
 										{p.tags.join(", ")}
