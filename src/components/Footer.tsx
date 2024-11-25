@@ -21,7 +21,7 @@ const SOCIALS = [
 
 export default function Footer() {
 	return (
-		<div className="bg-celadon-200 text-white flex flex-col gap-4 mt-auto items-center w-full p-8 py-10">
+		<div className="bg-celadon-200 text-white flex flex-col gap-4 mt-auto items-center w-full p-8 py-8">
 			<div className="flex flex-row items-center gap-8 text-2xl">
 				{SOCIALS.map((s, i) => (
 					<a

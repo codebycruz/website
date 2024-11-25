@@ -40,7 +40,7 @@ export default function Home() {
 							Hello!
 						</div>
 
-						<div className="text-4xl text-white text-nowrap">
+						<div className="text-4xl text-white text-center lg:text-nowrap">
 							Welcome to my website.
 						</div>
 					</div>

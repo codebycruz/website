@@ -54,7 +54,7 @@ function EmbeddedCarousel(props: { images: string[]; className?: string }) {
 						>
 							<img
 								src={im}
-								className="h-full object-contain"
+								className="h-full rounded-lg object-contain"
 								draggable={false}
 							/>
 						</li>
@@ -83,36 +83,33 @@ export function Carousel(props: { projects: ProjectHTML[] }) {
 	}, []);
 
 	return (
-		<div className="p-8 flex flex-row justify-center">
+		<div className="px-8">
 			<div className="w-full relative" ref={r}>
 				<div className="glide__track" data-glide-el="track">
 					<ul className="glide__slides">
 						{props.projects.map((p, i) => (
-							<li
-								key={i}
-								className="glide__slide h-full flex flex-col gap-2"
-							>
-								<div className="flex flex-col items-center lg:flex-row gap-2">
+							<li key={i} className="glide__slide">
+								<div className="flex flex-col min-h-[82vh] mt-4 lg:mt-0 items-center lg:flex-row gap-2">
 									<EmbeddedCarousel
 										images={p.imgs}
-										className="w-full rounded-lg h-screen lg:w-7/12"
+										className="w-full rounded-lg lg:w-7/12"
 									/>
 
 									<div
-										className="w-full h-full lg:w-5/12 select-text rounded-md p-1"
+										className="w-full lg:w-5/12 select-text rounded-md p-1"
 										dangerouslySetInnerHTML={{
 											__html: p.html!,
 										}}
 									/>
 								</div>
 
-								<div className="lg:w-full flex flex-col gap-2 lg:flex-row lg:justify-between lg:p-4">
-									<div className="w-fit flex flex-row items-center text-lg text-neutral-200 gap-2 rounded-full bg-neutral-800 p-2 px-4">
-										<FaTag className="inline" />
+								<div className="lg:w-full bottom-0 my-4 flex flex-col gap-2 lg:flex-row lg:justify-between lg:p-4">
+									<div className="w-fit flex flex-row items-center line-clamp-1 text-sm max-w-screen-sm lg:text-lg text-neutral-200 gap-2 rounded-full bg-neutral-800 p-2 px-4">
+										<FaTag className="text-lg inline" />
 										{p.tags.join(", ")}
 									</div>
 
-									<div className="w-fit flex flex-row items-center text-xl text-neutral-200 gap-4 rounded-full bg-neutral-800 p-2 px-4">
+									<div className="w-fit flex flex-row items-center text-base lg:text-xl text-neutral-200 gap-4 rounded-full bg-neutral-800 p-2 px-4">
 										{p.links.map((l, i) => (
 											<a key={i} href={l.href}>
 												<DynamicIcon

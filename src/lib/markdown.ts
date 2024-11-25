@@ -29,6 +29,7 @@ import "highlight.js/styles/atom-one-dark.css";
 	hljs.registerLanguage("sql", require('highlight.js/lib/languages/sql'));
 	hljs.registerLanguage("xml", require('highlight.js/lib/languages/xml'));
 	hljs.registerLanguage("lisp", require('highlight.js/lib/languages/lisp'));
+	hljs.registerLanguage("toml", require('highlight.js/lib/languages/ini'));
 	hljs.registerLanguage("plaintext", require('highlight.js/lib/languages/plaintext'));
 }
 
@@ -99,10 +100,10 @@ marked.use({
 
 		list({ items }) {
 			const i = items.map(
-				(i) => `<li>${this.parser.parseInline(i.tokens)}</li>`,
+				(i) => `<li>${this.parser.parse(i.tokens)}</li>`,
 			);
 
-			return `<ul class="list-disc list-inside">${i.join("")}</ul>`;
+			return `<ul>${i.join("")}</ul>`;
 		},
 	},
 });

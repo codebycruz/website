@@ -20,7 +20,7 @@ function Logo() {
 
 export default function Navbar() {
 	return (
-		<div className="border-b border-b-neutral-500 h-20 px-8 items-center flex flex-row">
+		<div className="border-b border-b-neutral-500 h-16 px-8 items-center flex flex-row t-0 sticky">
 			<div className="md:hidden absolute">
 				<Menu>
 					<MenuButton>
@@ -55,7 +55,7 @@ export default function Navbar() {
 						<a
 							key={i}
 							href={l.href}
-							className="font-medium flex flex-row gap-2 items-center transition-all duration-300 shadow-2xl active:shadow-none hover:bg-celadon-300 text-white py-4 px-4"
+							className="font-medium flex flex-row gap-2 items-center transition-all duration-300 shadow-2xl active:shadow-none hover:bg-celadon-300 text-white py-3 px-4"
 						>
 							{l.disp}
 							<l.icon />
