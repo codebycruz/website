@@ -61,7 +61,7 @@ marked.use({
 					<button class="text-sm w-fit text-neutral-600 hover:text-neutral-500 hover:cursor-pointer select-none" onclick="navigator.clipboard.writeText('${escapeHtml(text)}')">
 						${lang ?? "text"}
 					</button>
-					<pre><code class="font-mono">${out.value}</code></pre>
+					<pre><code class="text-wrap font-mono">${out.value}</code></pre>
 				</div>
 			`;
 		},

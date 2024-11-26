@@ -89,14 +89,14 @@ export function Carousel(props: { projects: ProjectHTML[] }) {
 					<ul className="glide__slides">
 						{props.projects.map((p, i) => (
 							<li key={i} className="glide__slide">
-								<div className="flex flex-col min-h-[82vh] mt-4 lg:mt-0 items-center lg:flex-row gap-2">
+								<div className="flex flex-col min-h-[82vh] mt-4 items-center lg:flex-row gap-2">
 									<EmbeddedCarousel
 										images={p.imgs}
 										className="w-full rounded-lg lg:w-7/12"
 									/>
 
 									<div
-										className="w-full lg:w-5/12 select-text rounded-md p-1"
+										className="w-full lg:w-5/12 select-text max-h-[82vh] overflow-x-hidden overflow-y-auto rounded-md p-1"
 										dangerouslySetInnerHTML={{
 											__html: p.html!,
 										}}
@@ -129,14 +129,14 @@ export function Carousel(props: { projects: ProjectHTML[] }) {
 					data-glide-el="controls"
 				>
 					<button
-						className="glide__arrow glide__arrow--left hidden lg:block absolute h-2/3 px-2 text-5xl lg:text-6xl text-white/20 lg:text-white/30 duration-300 transition hover:text-white/80 -left-7 top-0 lg:top-1/2 -translate-y-1/2"
+						className="glide__arrow glide__arrow--left hidden lg:block absolute h-2/3 px-2 text-5xl text-white/20 lg:text-white/30 duration-300 transition hover:cursor-pointer hover:text-white/80 -left-7 top-0 lg:top-1/2 -translate-y-1/2"
 						data-glide-dir="<"
 					>
 						<FaArrowCircleLeft />
 					</button>
 
 					<button
-						className="glide__arrow glide__arrow--right hidden lg:block absolute h-2/3 px-2 text-5xl lg:text-6xl text-white/20 lg:text-white/30 duration-300 transition hover:text-white/80 -right-7 top-0 lg:top-1/2 -translate-y-1/2"
+						className="glide__arrow glide__arrow--right hidden lg:block absolute h-2/3 px-2 text-5xl text-white/20 lg:text-white/30 duration-300 transition hover:cursor-pointer hover:text-white/80 -right-7 top-0 lg:top-1/2 -translate-y-1/2"
 						data-glide-dir=">"
 					>
 						<FaArrowCircleRight />

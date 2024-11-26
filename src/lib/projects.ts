@@ -79,6 +79,90 @@ const PROJECTS: Project[] = [
 		`,
 	},
 	{
+		name: "cpkg",
+		imgs: ["cpkg.png"],
+		tags: ["Rust", "CLI", "C", "Tooling"],
+		links: [
+			{ icon: "FaGithub", href: "https://github.com/DvvCz/cpkg" },
+			{ icon: "FaBox", href: "https://crates.io/crates/cpkg" },
+		],
+		desc: dedent`
+			# cpkg
+
+			\`cpkg\` is an all-in-one wrapper for tools like \`gcc\`, \`clang\`, \`doxygen\` and \`clang-format\`.
+			It automatically detects which are present on your system, allowing you to use them with one simple cli.
+
+			Inspired by the convenience of modern tools like \`cargo\` and \`bun\`.
+
+			## Usage
+
+			\`\`\`bash
+			cpkg init
+			cpkg run
+			\`\`\`
+
+			## Features
+
+			### 🧑‍💻 Project Runner
+
+			You can create a project with \`new\` or \`init\`, and then run \`/src/main.c\` with \`cpkg run\` or \`cpkg build\`.
+
+			You can run tests located in \`/src/*.test.c\` and \`/tests/*.c\` with \`cpkg test\`.
+
+			### 📦 Package Management
+
+			You can add local paths with \`cpkg add <name> --path /path/to/dependency\` and git dependencies with \`cpkg add <name> --git https://github.com/nothings/stb/tree/master\`.
+
+			### 🗄️ Project File Generation
+
+			Project files can be generated using \`cpkg generate\`.
+
+			This creates a project file that acts as if you ran \`cpkg build\`, without \`cpkg\`.
+
+			*Currently only supports basic [\`Makefile\`](https://www.gnu.org/software/make) generation*
+
+			### 🛠️ Other Components
+
+			\`cpkg\` supports other functionalities:
+
+			* Formatting using [\`clang-format\`](https://clang.llvm.org/docs/ClangFormat.html)
+			* Documenting using [\`doxygen\`](https://www.doxygen.nl)
+
+			## ⏬ Installation
+
+			### 📩 Releases
+
+			You can download the \`cpkg\` binary from [the releases](https://github.com/DvvCz/cpkg/releases) (or a nightly build from [actions](https://github.com/DvvCz/cpkg/actions))
+
+			### 📦 Cargo
+
+			If you have \`cargo\` you can install from crates.io.
+
+			\`\`\`bash
+			cargo install cpkg
+			\`\`\`
+
+			Or clone the repository and install it locally.
+
+			\`\`\`bash
+			git clone https://github.com/DvvCz/cpkg
+			cargo install --path cpkg
+			\`\`\`
+
+			### 🛜 cURL script
+
+			The other options are preferred, but there is an install script.
+
+			\`\`\`bash
+			curl -fsSL https://raw.githubusercontent.com/DvvCz/cpkg/master/install.sh | bash
+			\`\`\`
+
+			### 🔄 Upgrading
+
+			You can easily upgrade your \`cpkg\` binary using the \`cpkg upgrade\` command.
+		`,
+	},
+	{
 		name: "other",
 		imgs: ["other.png"],
 		tags: ["Rust", "HDL", "FPGA", "C", "Compilers"],
