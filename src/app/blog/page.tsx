@@ -1,5 +1,10 @@
 import Post from "@/components/Post";
 import { getPosts, readPost } from "@/lib/blog";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Blog",
+};
 
 const PATHS = await getPosts();
 const POSTS = await Promise.all(

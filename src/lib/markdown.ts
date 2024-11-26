@@ -57,7 +57,7 @@ marked.use({
 			const out = hljs.highlight(text, { language: lang ?? "plaintext" });
 
 			return `
-				<div class="flex flex-col -z-10 bg-neutral-800 p-2 rounded-lg text-nowrap overflow-clip">
+				<div class="flex flex-col -z-10 bg-neutral-800 p-2 rounded-lg text-nowrap text-clip">
 					<button class="text-sm w-fit text-neutral-600 hover:text-neutral-500 hover:cursor-pointer select-none" onclick="navigator.clipboard.writeText('${escapeHtml(text)}')">
 						${lang ?? "text"}
 					</button>

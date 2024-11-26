@@ -1,3 +1,4 @@
+import { minToRead } from "@/lib/blog";
 import { markdownToHTML } from "@/lib/markdown";
 
 export default async function Post(props: {
@@ -10,8 +11,7 @@ export default async function Post(props: {
 	mdClassName?: string;
 }) {
 	const md = await markdownToHTML(props.markdown);
-	const word_count = props.markdown.split(" ").length;
-	const min_to_read = Math.ceil((1 / 225) * word_count);
+	const { word_count, minutes } = minToRead(props.markdown);
 
 	const pub = props.published;
 	const pubStr = pub
@@ -34,12 +34,12 @@ export default async function Post(props: {
 				</div>
 
 				<span title={`Word Count: ~${word_count}`}>
-					~{min_to_read} min read
+					~{minutes} min read
 				</span>
 			</div>
 
 			<div
-				className={`drop-shadow-sm rounded-lg w-full text-lg p-8 border border-neutral-500 ${props.innerClassName}`}
+				className={`drop-shadow-xs rounded-lg w-full text-lg p-8 border border-neutral-500 ${props.innerClassName}`}
 			>
 				<div
 					className={props.mdClassName}

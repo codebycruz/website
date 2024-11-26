@@ -57,7 +57,7 @@ export default function Home() {
 			</div>
 
 			<div className="p-8 text-white w-full flex flex-col items-center">
-				<div className="flex flex-row gap-8 justify-evenly max-w-screen-2xl w-full">
+				<div className="flex flex-row gap-8 justify-evenly max-w-(--breakpoint-2xl) w-full">
 					<div className="flex flex-col gap-4 max-w-sm">
 						<div className="text-celadon-300 text-xl font-semibold">
 							Who am I?
@@ -177,7 +177,7 @@ export default function Home() {
 			</div>
 
 			<div className="p-8 flex border-t border-t-neutral-500 flex-col items-center">
-				<div className="max-w-screen-lg w-full">
+				<div className="max-w-(--breakpoint-lg) w-full">
 					<div className="text-lg text-celadon-300 font-semibold">
 						How can you contact me?
 					</div>

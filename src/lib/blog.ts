@@ -21,3 +21,10 @@ export async function readPost(
 	const meta = matter(raw);
 	return { content: meta.content, data: meta.data };
 }
+
+const WPM = 225;
+
+export function minToRead(text: string) {
+	const word_count = text.split(" ").length;
+	return { word_count, minutes: Math.ceil((1 / WPM) * word_count) };
+}

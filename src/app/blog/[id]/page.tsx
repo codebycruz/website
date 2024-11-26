@@ -1,6 +1,24 @@
 import Post from "@/components/Post";
-import { getPosts, readPost } from "@/lib/blog";
+import { getPosts, minToRead, readPost } from "@/lib/blog";
+import type { Metadata } from "next";
 export { getPosts as generateStaticParams };
+
+export async function generateMetadata(props: {
+	params: { id: string };
+}): Promise<Metadata> {
+	const { data, content } = await readPost(`blog/${props.params.id}.md`);
+	const { minutes } = minToRead(content);
+
+	return {
+		title: data.title ?? "No Title",
+		description: `Published ${data.published?.toLocaleDateString()} by ${data.author ?? "No Author"}`,
+
+		openGraph: {
+			type: "article",
+			title: `${data.title ?? "No Title"} | ${minutes} minute read.`,
+		},
+	};
+}
 
 export default async function Blog(props: { params: { id: string } }) {
 	const { data, content } = await readPost(`blog/${props.params.id}.md`);
