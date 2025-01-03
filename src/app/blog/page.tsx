@@ -21,15 +21,21 @@ const SORTED_POSTS = POSTS.toSorted(
 		(b.post.data.published ?? new Date()).getTime(),
 );
 
+function AsOfComponent() {
+	"use client";
+
+	return <span className="text-center text-neutral-400 text-2xl font-medium font-serif mb-14">
+		{`As of ${new Date().toLocaleDateString()}`}
+	</span>;
+}
+
 export default async function Blog() {
 	return (
 		<div className="p-8 flex flex-col">
 			<span className="text-center text-5xl font-medium font-sans mb-2">
 				All Articles
 			</span>
-			<span className="text-center text-neutral-400 text-2xl font-medium font-serif mb-14">
-				{`As of ${new Date().toLocaleDateString()}`}
-			</span>
+			<AsOfComponent />
 			<div className="flex flex-col gap-16">
 				{SORTED_POSTS.map((p, i) => (
 					<div key={i} className="relative">
