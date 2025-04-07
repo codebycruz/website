@@ -50,7 +50,6 @@ export default function Home() {
 							title="👋 Welcome!"
 							desc="My first post on the new website. Introduction to how I expect to run this blog and why you might want to tune in."
 							href="/blog/welcome"
-							new
 						/>
 					</div>
 				</div>
