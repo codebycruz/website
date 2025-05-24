@@ -53,11 +53,26 @@ marked.use({
 			return `<br/>`;
 		},
 
+		blockquote({ tokens }) {
+			return `
+				<blockquote class="border-l-4 border-neutral-600 pl-4 italic text-neutral-400">
+					${this.parser.parse(tokens)}
+				</blockquote>
+			`;
+		},
+
+		codespan({ text }) {
+			return `<span
+				onclick="navigator.clipboard.writeText('${escapeHtml(text)}')"
+				class="bg-neutral-800 px-2 py-1 rounded text-neutral-300 font-mono hover:cursor-pointer"
+			>${text}</span>`;
+		},
+
 		code({ text, lang, escaped }) {
 			const out = hljs.highlight(text, { language: lang ?? "plaintext" });
 
 			return `
-				<div class="flex flex-col -z-10 bg-neutral-800 p-2 rounded-lg text-nowrap text-clip">
+				<div class="flex flex-col -z-10 bg-neutral-800 p-2 rounded-lg text-nowrap text-clip w-fit pr-10">
 					<button class="text-sm w-fit text-neutral-600 hover:text-neutral-500 hover:cursor-pointer select-none" onclick="navigator.clipboard.writeText('${escapeHtml(text)}')">
 						${lang ?? "text"}
 					</button>
@@ -67,7 +82,7 @@ marked.use({
 		},
 
 		paragraph({ tokens }) {
-			return `<p>${this.parser.parseInline(tokens)}</p>`;
+			return `<p class="text-lg">${this.parser.parseInline(tokens)}</p>`;
 		},
 
 		heading({ tokens, depth }) {
@@ -79,8 +94,8 @@ marked.use({
 					"text-white",
 					"text-blue-400",
 					"text-yellow-300",
-					"text-red-300",
-				][depth] ?? "text-white";
+					"text-red-400"
+				][depth];
 
 			return `
 				<h${depth} class="font-serif font-bold ${color} ${size} ${pad} ${nth_header++ > 0 ? "mt-4" : ""}">
@@ -92,18 +107,31 @@ marked.use({
 		link({ tokens, href }) {
 			let r = this.parser.parseInline(tokens);
 			return `
-				<a href=${href} class="text-celadon-400 underline rounded-lg transition p-px duration-500 hover:bg-celadon-400/20">
+				<a href=${href} class="text-celadon-400 underline rounded-lg p-px">
 					${r}
 				</a>
 			`;
 		},
 
-		list({ items }) {
+		list({ items, ordered }) {
+			const listType = ordered ? "ol" : "ul";
+			const listClass = ordered ? "list-decimal list-outside ml-6" : "list-disc list-outside ml-6";
+
 			const i = items.map(
-				(i) => `<li>${this.parser.parse(i.tokens)}</li>`,
+				(item) => {
+					const hasNestedElements = item.tokens.some(token =>
+						token.type === 'list' || token.type === 'paragraph' || token.type === 'code'
+					);
+
+					if (hasNestedElements) {
+						return `<li class="mb-1">${this.parser.parse(item.tokens)}</li>`;
+					} else {
+						return `<li class="mb-1">${this.parser.parseInline(item.tokens)}</li>`;
+					}
+				},
 			);
 
-			return `<ul>${i.join("")}</ul>`;
+			return `<${listType} class="${listClass}">${i.join("")}</${listType}>`;
 		},
 	},
 });
