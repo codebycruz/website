@@ -1,17 +1,22 @@
 ---
 import { Icon } from "astro-icon/components";
 
-type LinkInfo = { to: string } & ({ text: string } | { icon: string });
+type LinkInfo = { to: string; label: string } & (
+    | { text: string }
+    | { icon: string }
+);
 
 const links = [
-    { to: "https://x.com/codebycruz", text: "𝕏" },
+    { to: "https://x.com/codebycruz", text: "𝕏", label: "𝕏" },
     {
         to: "https://www.linkedin.com/in/codebycruz",
         icon: "mdi:linkedin",
+        label: "LinkedIn",
     },
     {
         to: "https://github.com/DvvCz",
         icon: "mdi:github",
+        label: "Github",
     },
 ] as LinkInfo[];
 ---
@@ -23,6 +28,7 @@ const links = [
                 <a
                     class="text-3xl p-6 text-black/60 transition duration-300 hover:text-white"
                     href={link.to}
+                    aria-label={link.label}
                 >
                     {"icon" in link ? <Icon name={link.icon} /> : link.text}
                 </a>

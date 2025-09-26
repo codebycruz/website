@@ -1,22 +1,22 @@
 {
-  "name": "",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@tailwindcss/vite": "^4.1.13",
-    "astro": "^5.14.0",
-    "astro-icon": "^1.1.5",
-    "tailwindcss": "^4.1.13"
-  },
-  "devDependencies": {
-    "@iconify-json/ion": "^1.2.6",
-    "@iconify-json/mdi": "^1.2.3",
-    "@iconify-json/simple-icons": "^1.2.53"
-  }
+	"name": "codebycruz",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@tailwindcss/vite": "^4.1.13",
+		"astro": "^5.14.0",
+		"astro-icon": "^1.1.5",
+		"tailwindcss": "^4.1.13"
+	},
+	"devDependencies": {
+		"@iconify-json/ion": "^1.2.6",
+		"@iconify-json/mdi": "^1.2.3",
+		"@iconify-json/simple-icons": "^1.2.53"
+	}
 }
