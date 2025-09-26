@@ -3,7 +3,7 @@ import Logo from "./Logo.astro";
 import { Icon } from "astro-icon/components";
 
 const links = [
-    { name: "Projects", to: "/projects", icon: "mdi:flask" },
+    { name: "Projects", to: "/projects", icon: "mdi:flask", disabled: true },
     { name: "Posts", to: "/posts", icon: "mdi:paper" },
 ];
 ---
@@ -18,8 +18,8 @@ const links = [
             {
                 links.map((link) => (
                     <a
-                        href={link.to}
-                        class="px-6 py-4 text-lg bg-transparent hover:bg-green-600 transition duration-300"
+                        href={link.disabled ? "" : link.to}
+                        class={`${link.disabled ? "text-white/50" : "hover:bg-green-600"} px-6 py-4 text-lg bg-transparent transition duration-300`}
                     >
                         <span class="flex flex-row items-center gap-2 font-semibold">
                             {link.name}
