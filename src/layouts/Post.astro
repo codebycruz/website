@@ -1,0 +1,29 @@
+---
+import Layout from "./Layout.astro";
+const { frontmatter } = Astro.props;
+import "../styles/post.css";
+---
+
+<Layout>
+    <div class="px-20 pt-10">
+        <div class="flex flex-row w-full justify-between">
+            <span class="text-lg">By {frontmatter.author ?? "David Cruz"}</span>
+            <span>~X minute read</span>
+        </div>
+
+        <span class="text-gray-300">
+            ✍️ {
+                new Date(frontmatter.published).toLocaleDateString("en-US", {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                })
+            }
+        </span>
+
+        <div class="post p-8 mt-4 border border-white/50 rounded-lg mb-20">
+            <slot />
+        </div>
+    </div>
+</Layout>

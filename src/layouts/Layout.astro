@@ -1,0 +1,37 @@
+---
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import Navbar from "../components/Navbar.astro";
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>codebycruz</title>
+    </head>
+
+    <body class="bg-neutral-900 text-white">
+        <div class="flex flex-col items-center">
+            <div
+                class="max-w-2xl sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-[1920px] w-full"
+            >
+                <Navbar />
+                <slot />
+                <Footer />
+            </div>
+        </div>
+    </body>
+</html>
+
+<style>
+    html,
+    body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+</style>

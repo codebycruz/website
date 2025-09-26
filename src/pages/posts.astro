@@ -1,0 +1,48 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const posts = await Promise.all(
+    Object.entries(import.meta.glob("./posts/*.md")).map(
+        async ([path, loader]) => {
+            const post = await loader();
+            const filename = path.split("/").pop()?.replace(".md", "") || "";
+
+            return {
+                filename,
+                ...post.frontmatter,
+            };
+        },
+    ),
+);
+---
+
+<Layout>
+    <h1 class="text-center text-4xl font-bold my-10">Posts</h1>
+
+    <div class="flex flex-col items-center gap-8 px-20 pb-20">
+        {
+            posts.map((post) => (
+                <a
+                    href={`/posts/${post.filename}`}
+                    class="flex flex-col max-w-xl md:max-w-3xl lg:max-w-5xl w-full border border-white/50"
+                >
+                    {post.preview ? (
+                        <img
+                            src={post.preview}
+                            class="h-96 w-full bg-black/50 border-b border-white/50 object-contain"
+                        />
+                    ) : (
+                        <div class="h-96 flex items-center justify-center w-full bg-black/50 border-b border-white/50">
+                            No preview found.
+                        </div>
+                    )}
+
+                    <div class="p-2">
+                        <span class="font-bold text-xl">{post.title}</span>
+                        <p class="text-lg">{post.desc}</p>
+                    </div>
+                </a>
+            ))
+        }
+    </div>
+</Layout>

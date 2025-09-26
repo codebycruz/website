@@ -1,0 +1,32 @@
+---
+import { Icon } from "astro-icon/components";
+
+type LinkInfo = { to: string } & ({ text: string } | { icon: string });
+
+const links = [
+    { to: "https://x.com/codebycruz", text: "𝕏" },
+    {
+        to: "https://www.linkedin.com/in/codebycruz",
+        icon: "mdi:linkedin",
+    },
+    {
+        to: "https://github.com/DvvCz",
+        icon: "mdi:github",
+    },
+] as LinkInfo[];
+---
+
+<footer class="px-4 py-8 bg-green-600 w-full">
+    <div class="flex flex-row gap-2 items-center justify-center">
+        {
+            links.map((link) => (
+                <a
+                    class="text-3xl p-6 text-black/50 transition duration-300 hover:text-white"
+                    href={link.to}
+                >
+                    {"icon" in link ? <Icon name={link.icon} /> : link.text}
+                </a>
+            ))
+        }
+    </div>
+</footer>

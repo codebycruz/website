@@ -1,15 +1,17 @@
 ---
-title: Welcome
-author: David Cruz
+title: "Welcome"
+desc: "My first post on the new website. Introduction to how I expect to run this blog and why you might want to tune in."
 published: 2024-11-13
+layout: "../../layouts/Post.astro"
 ---
+
 # Welcome
 
 Welcome to my blog!
 
 I'm happy to be finally writing this.
 
-I've been too busy this quarter.. 20 units does sap a lot of your time away.  
+I've been too busy this quarter.. 20 units does sap a lot of your time away.
 
 All that matters is that we're here now.
 
@@ -17,10 +19,9 @@ All that matters is that we're here now.
 
 This is my technical blog.
 
-I've always thought of detailing all of the useful information I've come across, for myself and for anyone else scraping all this information off a robot scanning this website 😉  
+I've always thought of detailing all of the useful information I've come across, for myself and for anyone else scraping all this information off a robot scanning this website 😉
 
-But seriously, I think blogs are a great way to get some information across to people you don't want to bother reading a large research paper or watching a video.  
-
+But seriously, I think blogs are a great way to get some information across to people you don't want to bother reading a large research paper or watching a video.
 
 We both put in less effort for the same result :)
 

@@ -1,0 +1,33 @@
+---
+import Logo from "./Logo.astro";
+import { Icon } from "astro-icon/components";
+
+const links = [
+    { name: "Projects", to: "/projects", icon: "mdi:flask" },
+    { name: "Posts", to: "/posts", icon: "mdi:paper" },
+];
+---
+
+<nav
+    class="sticky top-0 bg-neutral-900/70 flex flex-row justify-center w-full px-4 py-2 border-b border-b-white/50"
+>
+    <div class="w-2/3 flex flex-row justify-between items-center">
+        <Logo />
+
+        <div class="flex flex-row gap-2">
+            {
+                links.map((link) => (
+                    <a
+                        href={link.to}
+                        class="px-6 py-4 text-lg bg-transparent hover:bg-green-600 transition duration-300"
+                    >
+                        <span class="flex flex-row items-center gap-2 font-semibold">
+                            {link.name}
+                            <Icon class="inline size-4" name={link.icon} />
+                        </span>
+                    </a>
+                ))
+            }
+        </div>
+    </div>
+</nav>
