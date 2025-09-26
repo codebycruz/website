@@ -7,11 +7,11 @@
    viewBox="0 0 400 400"
    version="1.1"
    id="svg1"
-   sodipodi:docname="alpha_circle.svg"
+   sodipodi:docname="alpha.svg"
    inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
    inkscape:export-filename="alpha.png"
-   inkscape:export-xdpi="96"
-   inkscape:export-ydpi="96"
+   inkscape:export-xdpi="122.88"
+   inkscape:export-ydpi="122.88"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -28,18 +28,30 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:zoom="1.2217362"
-     inkscape:cx="162.88295"
-     inkscape:cy="188.66593"
+     inkscape:zoom="1.0215372"
+     inkscape:cx="194.31501"
+     inkscape:cy="195.78338"
      inkscape:window-width="1536"
-     inkscape:window-height="792"
+     inkscape:window-height="787"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer2"
-     inkscape:export-bgcolor="#b3b3b3ff" />
+     inkscape:export-bgcolor="#b3b3b300" />
   <defs
      id="defs1">
+    <linearGradient
+       id="linearGradient1"
+       inkscape:collect="always">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0.13717948"
+         id="stop1" />
+      <stop
+         style="stop-color:#8d8fb1;stop-opacity:1;"
+         offset="1"
+         id="stop2" />
+    </linearGradient>
     <marker
        style="overflow:visible"
        id="Triangle"
@@ -63,7 +75,7 @@
        id="linearGradient27"
        inkscape:collect="always">
       <stop
-         style="stop-color:#000000;stop-opacity:0.55624998;"
+         style="stop-color:#26234c;stop-opacity:1;"
          offset="0"
          id="stop27" />
       <stop
@@ -89,46 +101,22 @@
        r="200"
        gradientUnits="userSpaceOnUse"
        gradientTransform="matrix(1.3062557,-0.00309938,0.00382464,1.6119473,-62.016089,-121.76959)" />
-    <clipPath
-       clipPathUnits="userSpaceOnUse"
-       id="clipPath2">
-      <ellipse
-         style="fill:#000000;stroke-width:1.0097"
-         id="circle2"
-         cx="200.0002"
-         cy="199.99982"
-         rx="200.0002"
-         ry="199.99982"
-         transform="matrix(0.9999788,-0.0065122,0.00636252,0.99997976,0,0)" />
-    </clipPath>
-    <clipPath
-       clipPathUnits="userSpaceOnUse"
-       id="clipPath3">
-      <ellipse
-         style="fill:#000000;stroke-width:1.0097"
-         id="circle3"
-         cx="200.0005"
-         cy="199.99953"
-         rx="200.0005"
-         ry="199.99953"
-         transform="matrix(0.99997803,-0.00662861,0.00625076,0.99998046,0,0)" />
-    </clipPath>
-    <clipPath
-       clipPathUnits="userSpaceOnUse"
-       id="clipPath4">
-      <circle
-         style="fill:#000000;stroke-width:1.0097"
-         id="circle4"
-         cx="200"
-         cy="200"
-         r="200" />
-    </clipPath>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient1"
+       id="radialGradient2"
+       cx="201.24626"
+       cy="198.66989"
+       fx="201.24626"
+       fy="198.66989"
+       r="90.000221"
+       gradientTransform="matrix(1,0,0,0.99999508,0,9.7680201e-4)"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1"
-     style="display:inline">
+     id="layer1">
     <rect
        style="fill:url(#radialGradient28);fill-opacity:1;fill-rule:evenodd"
        id="background"
@@ -136,22 +124,20 @@
        height="400"
        x="0"
        y="0"
-       inkscape:highlight-color="#0c121c"
-       clip-path="url(#clipPath4)" />
+       inkscape:highlight-color="#0c121c" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Layer 2">
     <ellipse
-       style="fill:#e0e0e0;fill-opacity:1;fill-rule:evenodd;stroke-width:1.08502"
+       style="fill:url(#radialGradient2);fill-opacity:1;fill-rule:evenodd;stroke-width:1.08502"
        id="moon"
        cx="201.24626"
        cy="198.66989"
        rx="90.000221"
        ry="89.999779"
-       transform="matrix(0.99997803,0.00662863,-0.00625074,0.99998046,0,0)"
-       clip-path="url(#clipPath3)" />
+       transform="matrix(0.99997803,0.00662863,-0.00625074,0.99998046,0,0)" />
     <path
        style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:3.69352;stroke-linecap:round;stroke-dasharray:11.0805, 11.0805;stroke-dashoffset:0;stroke-opacity:0.59225094;marker-start:url(#Triangle)"
        id="outline"
@@ -166,7 +152,6 @@
        sodipodi:open="true"
        sodipodi:arc-type="arc"
        d="M 307.62044,291.7247 A 140.62128,138.15065 0 0 1 137.86088,320.75762 140.62128,138.15065 0 0 1 66.930753,166.47987 140.62128,138.15065 0 0 1 201.3333,60.543078 140.62128,138.15065 0 0 1 339.25996,162.01381"
-       inkscape:label="outline"
-       clip-path="url(#clipPath2)" />
+       inkscape:label="outline" />
   </g>
 </svg>

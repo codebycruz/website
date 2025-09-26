@@ -3,18 +3,18 @@ import Logo from "./Logo.astro";
 import { Icon } from "astro-icon/components";
 
 const links = [
-    { name: "Projects", to: "/projects", icon: "mdi:flask", disabled: true },
+    { name: "Projects", to: "/projects", icon: "mdi:flask" },
     { name: "Posts", to: "/posts", icon: "mdi:paper" },
 ];
 ---
 
 <nav
-    class="sticky top-0 bg-neutral-900/70 flex flex-row justify-center w-full px-4 py-2 border-b border-b-white/50"
+    class="sticky top-0 bg-neutral-900/70 flex flex-row justify-center w-full px-2 lg:px-4 py-2 border-b border-b-white/50"
 >
-    <div class="w-2/3 flex flex-row justify-between items-center">
+    <div class="lg:w-2/3 flex flex-row justify-between items-center">
         <Logo />
 
-        <div class="flex flex-row gap-2">
+        <div class="flex flex-row md:gap-2">
             {
                 links.map((link) => (
                     <a

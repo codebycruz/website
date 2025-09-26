@@ -13,18 +13,16 @@ const newsEntries = [
         desc: "My first post on the new website. Introduction to how I expect to run this blog and why you might want to tune in.",
         to: "/posts/welcome",
     },
-] as { title: string };
+] as { title: string; desc: string; to: string }[];
 ---
 
 <Layout>
-    <div class="flex flex-row justify-center">
+    <section class="flex flex-row justify-center">
         <div class="flex flex-row gap-8 w-2/3">
             <div class="w-full h-full py-44">
                 <div class="flex flex-col items-center justify-center">
-                    <span class="text-green-600 font-bold text-7xl">
-                        Hello!
-                    </span>
-                    <span class="text-4xl">Welcome to my website.</span>
+                    <h1 class="text-green-600 font-bold text-7xl">Hello!</h1>
+                    <h2 class="text-4xl">Welcome to my website.</h2>
                 </div>
             </div>
 
@@ -46,7 +44,7 @@ const newsEntries = [
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <div
         class="border-t border-t-white/50 px-30 py-8 w-full flex flex-row gap-40"
@@ -82,7 +80,7 @@ const newsEntries = [
             </p>
         </div>
 
-        <div class="flex flex-col w-full gap-2">
+        <section class="flex flex-col w-full gap-2">
             <h2 class="text-green-600 font-bold text-xl">What do I do?</h2>
 
             <p>
@@ -129,6 +127,6 @@ const newsEntries = [
                 you are interested in that. Otherwise, I'm open to providing any
                 guidance or pointers.
             </p>
-        </div>
+        </section>
     </div>
 </Layout>

@@ -1,0 +1,76 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { text } = Astro.props;
+
+const specialStyle =
+    (
+        {
+            rust: "bg-[#B7410E]/20",
+            docker: "bg-blue-500/20",
+            python: "bg-yellow-500/20",
+            "c#": "bg-purple-500/20",
+            lua: "bg-blue-400/20",
+            "c++": "bg-blue-600/20",
+            postgres: "bg-blue-700/20",
+            redis: "bg-red-500/20",
+            typescript: "bg-blue-400/20",
+            grafana: "bg-orange-500/20",
+            rabbitmq: "bg-orange-600/20",
+            "open source": "bg-gray-600/20",
+            opengl: "bg-green-500/20",
+            wgpu: "bg-purple-600/20",
+            assembly: "bg-red-600/20",
+            astro: "bg-orange-500/20",
+            react: "bg-blue-500/20",
+            "solid.js": "bg-blue-600/20",
+            "next.js": "bg-black/20",
+            linux: "bg-yellow-600/20",
+            windows: "bg-blue-500/20",
+            css: "bg-blue-400/20",
+            tailwind: "bg-teal-500/20",
+            html: "bg-orange-600/20",
+            c: "bg-blue-700/20",
+            systemverilog: "bg-green-600/20",
+        } as Record<string, string>
+    )[text.toLowerCase()] ?? "bg-white/20";
+
+const specialIcon = (
+    {
+        rust: "mdi:language-rust",
+        docker: "mdi:docker",
+        python: "mdi:language-python",
+        "c#": "mdi:language-csharp",
+        lua: "mdi:language-lua",
+        "c++": "mdi:language-cpp",
+        postgres: "mdi:database-outline",
+        redis: "simple-icons:redis",
+        typescript: "mdi:language-typescript",
+        grafana: "simple-icons:grafana",
+        rabbitmq: "simple-icons:rabbitmq",
+        "open source": "mdi:github",
+        opengl: "simple-icons:opengl",
+        wgpu: "simple-icons:wgpu",
+        gpu: "mdi:gpu",
+        assembly: "mdi:memory",
+        astro: "simple-icons:astro",
+        react: "mdi:react",
+        "solid.js": "simple-icons:solid",
+        "next.js": "simple-icons:nextdotjs",
+        linux: "mdi:linux",
+        windows: "mdi:microsoft-windows",
+        css: "mdi:language-css3",
+        tailwind: "simple-icons:tailwindcss",
+        html: "mdi:language-html5",
+        c: "mdi:language-c",
+        systemverilog: "mdi:chip",
+    } as Record<string, string>
+)[text.toLowerCase()];
+---
+
+<span
+    class={`px-2 py-1 text-sm rounded flex items-center gap-1 ${specialStyle}`}
+>
+    {specialIcon && <Icon name={specialIcon} class="inline" />}
+    {text}
+</span>

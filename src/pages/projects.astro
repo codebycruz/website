@@ -1,5 +1,86 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Tag from "../components/Tag.astro";
+
+const projects = (await Promise.all(
+    Object.entries(import.meta.glob("./projects/*.astro")).map(
+        async ([path, loader]) => {
+            const post = await loader();
+            const filename = path.split("/").pop()?.replace(".astro", "") || "";
+
+            return {
+                filename,
+                // @ts-expect-error
+                ...post,
+            };
+        },
+    ),
+)) as {
+    filename: string;
+    name: string;
+    desc: string;
+    tags: string[];
+    order: number;
+    cover?: string;
+    coverStyle?: string;
+    link?: string;
+}[];
+
+projects.sort((a, b) => a.order - b.order);
 ---
 
-<Layout> Under construction.. </Layout>
+<Layout>
+    <h1 class="text-center text-4xl font-bold my-10">Projects</h1>
+
+    <div class="flex flex-col items-center gap-8 px-4 lg:px-20 pb-20">
+        {
+            projects.map((project, index) => (
+                <a
+                    href={
+                        project.link
+                            ? project.link
+                            : `/projects/${project.filename}`
+                    }
+                    class={`flex flex-col md:flex-row max-w-xl md:max-w-3xl lg:max-w-5xl w-full border border-white/50 ${
+                        index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                    }`}
+                >
+                    <div class="flex-1">
+                        {project.cover ? (
+                            <img
+                                src={project.cover}
+                                class={`${project.coverStyle ?? ""} h-56 lg:h-96 w-full bg-black/50 border-b md:border-b-0 border-white/50 object-contain ${
+                                    index % 2 === 0
+                                        ? "md:border-r"
+                                        : "md:border-l"
+                                }`}
+                            />
+                        ) : (
+                            <div
+                                class={`h-56 lg:h-96 flex items-center justify-center w-full bg-black/50 border-b md:border-b-0 border-white/50 ${
+                                    index % 2 === 0
+                                        ? "md:border-r"
+                                        : "md:border-l"
+                                }`}
+                            >
+                                No cover found.
+                            </div>
+                        )}
+                    </div>
+
+                    <div class="flex-1 p-4 flex flex-col justify-center">
+                        <h2 class="font-bold text-2xl mb-2">{project.name}</h2>
+                        <p class="text-lg mb-4">{project.desc}</p>
+                        {project.tags && project.tags.length > 0 && (
+                            <div class="flex flex-wrap gap-2">
+                                {project.tags.map((tag) => (
+                                    <Tag text={tag} />
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </a>
+            ))
+        }
+    </div>
+</Layout>
