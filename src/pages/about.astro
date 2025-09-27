@@ -11,7 +11,9 @@ import { Icon } from "astro-icon/components";
 
         <div class="grid md:grid-cols-2 gap-12 items-start">
             <div class="space-y-6">
-                <h2 class="text-green-600 font-bold text-xl">👋 I'm David</h2>
+                <h2 class="text-green-600 font-bold text-xl">
+                    <span class="waving-hand">👋</span> I'm David
+                </h2>
 
                 <p class="leading-relaxed">
                     Glad you found this part of the site. This is more in detail
@@ -70,3 +72,38 @@ import { Icon } from "astro-icon/components";
         </div>
     </div>
 </Layout>
+
+<style>
+    @keyframes wave {
+        0% {
+            transform: rotate(0deg);
+        }
+        10% {
+            transform: rotate(14deg);
+        }
+        20% {
+            transform: rotate(-8deg);
+        }
+        30% {
+            transform: rotate(14deg);
+        }
+        40% {
+            transform: rotate(-4deg);
+        }
+        50% {
+            transform: rotate(10deg);
+        }
+        60% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+
+    .waving-hand {
+        animation: wave 2s ease-in-out;
+        transform-origin: 70% 70%;
+        display: inline-block;
+    }
+</style>
