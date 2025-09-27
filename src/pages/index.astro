@@ -2,23 +2,28 @@
 import { Icon } from "astro-icon/components";
 import Layout from "../layouts/Layout.astro";
 
-const newsEntries = [
-    {
-        title: "🛠️ Projects are back!",
-        desc: "They're back and actually decent looking!",
-        to: "/posts/projects",
-    },
-    {
-        title: "🚀 Hello, Astro!",
-        desc: "A shiny new website brought to you with Astro",
-        to: "/posts/astro",
-    },
-    {
-        title: "👋 Welcome",
-        desc: "My first post on the new website. Introduction to how I expect to run this blog and why you might want to tune in.",
-        to: "/posts/welcome",
-    },
-] as { title: string; desc: string; to: string }[];
+const posts = await Promise.all(
+    Object.entries(import.meta.glob("./posts/*.md")).map(
+        async ([path, loader]) => {
+            const post = await loader();
+            const filename = path.split("/").pop()?.replace(".md", "") || "";
+
+            return {
+                filename,
+                ...post.frontmatter,
+            };
+        },
+    ),
+);
+
+posts.sort((a, b) => new Date(b.published) - new Date(a.published));
+
+const newsEntries = posts.slice(0, 3).map((post) => ({
+    title: post.title,
+    desc: post.desc,
+    to: `/posts/${post.filename}`,
+    published: post.published,
+}));
 ---
 
 <Layout>
@@ -47,7 +52,18 @@ const newsEntries = [
                                 href={entry.to}
                                 class="p-2 border border-white/50 rounded-lg"
                             >
-                                <h2 class="font-semibold">{entry.title}</h2>
+                                <div class="flex flex-col md:flex-row md:justify-between mb-1">
+                                    <h2 class="font-semibold">{entry.title}</h2>
+                                    <span class="text-gray-400 text-sm">
+                                        {new Date(
+                                            entry.published,
+                                        ).toLocaleDateString("en-US", {
+                                            year: "numeric",
+                                            month: "short",
+                                            day: "numeric",
+                                        })}
+                                    </span>
+                                </div>
                                 {entry.desc}
                             </a>
                         ))
