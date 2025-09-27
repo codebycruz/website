@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import PatternBackground from "../components/PatternBackground.astro";
 
 const posts = await Promise.all(
     Object.entries(import.meta.glob("./posts/*.md")).map(
@@ -35,10 +36,9 @@ posts.sort((a, b) => new Date(b.published) - new Date(a.published));
                                 class="h-48 lg:h-64 w-full object-contain drop-shadow-lg"
                             />
                         ) : (
-                            <img
-                                src="/pattern.avif"
-                                class="h-48 lg:h-64 w-full object-cover drop-shadow-lg"
-                            />
+                            <div class="h-48 lg:h-64 w-full drop-shadow-lg relative">
+                                <PatternBackground />
+                            </div>
                         )}
                     </div>
 

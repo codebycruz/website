@@ -1,0 +1,54 @@
+---
+interface Props {
+    class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+
+<div class={`pattern-background ${className}`}></div>
+
+<style>
+    .pattern-background {
+        position: relative;
+        overflow: hidden;
+        background: transparent;
+        width: 100%;
+        height: 100%;
+    }
+
+    .pattern-background::before {
+        content: "codebycruz codebycruz codebycruz codebycruz codebycruz codebycruz codebycruz codebycruz codebycruz codebycruz codebycruz codebycruz codebycruz codebycruz codebycruz codebycruz codebycruz codebycruz codebycruz codebycruz codebycruz codebycruz codebycruz codebycruz";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        font-family: monospace;
+        font-size: 64px;
+        font-weight: 500;
+        color: #22c55e;
+        opacity: 0.15;
+        line-height: 0.8;
+        word-wrap: break-word;
+        transform: rotate(-15deg);
+        pointer-events: none;
+        user-select: none;
+        white-space: pre-wrap;
+        overflow: hidden;
+        will-change: auto;
+    }
+
+    /* Responsive font sizing */
+    @media (min-width: 768px) {
+        .pattern-background::before {
+            font-size: 72px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .pattern-background::before {
+            font-size: 80px;
+        }
+    }
+</style>
