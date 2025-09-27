@@ -39,6 +39,44 @@ const newsEntries = posts.slice(0, 3).map((post) => ({
                     <h2 class="text-2xl lg:text-4xl text-center">
                         Welcome to my website.
                     </h2>
+
+                    <!-- Social Links Row -->
+                    <div class="flex items-center gap-1 mt-8">
+                        <a
+                            href="https://x.com/codebycruz"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-2xl hover:text-green-600 p-4 transition-colors"
+                            aria-label="𝕏"
+                        >
+                            𝕏
+                        </a>
+                        <a
+                            href="https://linkedin.com/in/codebycruz"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-2xl hover:text-green-600 p-4 transition-colors"
+                            aria-label="LinkedIn"
+                        >
+                            <Icon name="mdi:linkedin" />
+                        </a>
+                        <a
+                            href="https://github.com/codebycruz"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-2xl hover:text-green-600 p-4 transition-colors"
+                            aria-label="GitHub"
+                        >
+                            <Icon name="mdi:github" />
+                        </a>
+                        <a
+                            href="mailto:david@codebycruz.com"
+                            class="text-2xl hover:text-green-600 p-4 transition-colors"
+                            aria-label="Email"
+                        >
+                            <Icon name="mdi:email" />
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -78,9 +116,11 @@ const newsEntries = posts.slice(0, 3).map((post) => ({
         class="border-t border-t-white/50 px-4 lg:px-30 py-8 w-full flex flex-col lg:flex-row gap-8 lg:gap-40"
     >
         <div class="flex flex-col w-full gap-2">
-            <h2 class="text-green-600 font-bold text-xl">Who am I?</h2>
+            <h2 class="text-green-600 font-bold text-2xl lg:text-3xl">
+                Who am I?
+            </h2>
 
-            <p>
+            <p class="text-lg">
                 My name is David - I'm a Computer Engineering student at <a
                     class="underline"
                     href="https://www.calpoly.edu/">Cal Poly, SLO</a
@@ -88,16 +128,16 @@ const newsEntries = posts.slice(0, 3).map((post) => ({
                 of 6 years as part of my passion.
             </p>
 
-            <p>I'm bilingual, English and Spanish.</p>
+            <p class="text-lg">I'm bilingual, English and Spanish.</p>
 
-            <p>
+            <p class="text-lg">
                 You'll often find me creating and managing open source projects
                 on <a href="https://github.com/" class="underline text-nowrap">
                     <Icon name="mdi:github" class="inline" /> Github
                 </a>.
             </p>
 
-            <p>
+            <p class="text-lg">
                 You can contact me at <a
                     href="mailto:david@codebycruz.com"
                     class="underline"
@@ -109,14 +149,16 @@ const newsEntries = posts.slice(0, 3).map((post) => ({
         </div>
 
         <section class="flex flex-col w-full gap-2">
-            <h2 class="text-green-600 font-bold text-xl">What do I do?</h2>
+            <h2 class="text-green-600 font-bold text-2xl lg:text-3xl">
+                What do I do?
+            </h2>
 
-            <p>
+            <p class="text-lg">
                 I build projects like full-stack, deployable applications with
                 the best tools for the job.
             </p>
 
-            <p>
+            <p class="text-lg">
                 My preferred tools are <a
                     href="https://www.typescriptlang.org/"
                     class="underline"
@@ -150,7 +192,7 @@ const newsEntries = posts.slice(0, 3).map((post) => ({
                 </a> for simple programs.
             </p>
 
-            <p>
+            <p class="text-lg">
                 I've been contracted for a few projects, please do reach out if
                 you are interested in that. Otherwise, I'm open to providing any
                 guidance or pointers.
