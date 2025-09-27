@@ -6,16 +6,17 @@ const links = [
     { name: "Projects", to: "/projects", icon: "mdi:flask" },
     { name: "Posts", to: "/posts", icon: "mdi:paper" },
     { name: "About", to: "/about", icon: "mdi:about" },
+    { name: "Resume", to: "/David_Cruz_Resume.pdf", icon: "mdi:resume" },
 ];
 ---
 
 <nav
     class="sticky z-10 top-0 bg-neutral-900/70 flex flex-row justify-center w-full px-2 lg:px-4 py-2 border-b border-b-white/50"
 >
-    <div class="lg:w-2/3 flex flex-row justify-between items-center">
+    <div class="lg:w-2/3 flex flex-row justify-between items-center w-full">
         <Logo />
 
-        <div class="flex flex-row md:gap-2">
+        <div class="hidden md:flex flex-row gap-2">
             {
                 links.map((link) => (
                     <a
@@ -30,5 +31,126 @@ const links = [
                 ))
             }
         </div>
+
+        <div class="md:hidden">
+            <input type="checkbox" id="mobile-menu-toggle" class="hidden" />
+            <label
+                for="mobile-menu-toggle"
+                class="cursor-pointer block w-6 h-6 text-white hover:text-green-600 transition-colors duration-300"
+            >
+                <svg
+                    class="burger-icon w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+
+                <svg
+                    class="cross-icon w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </label>
+
+            <div
+                class="mobile-menu absolute top-full left-0 right-0 bg-neutral-900/95 border-b border-b-white/50 backdrop-blur-sm"
+            >
+                <div class="flex flex-col">
+                    {
+                        links.map((link, index) => (
+                            <a
+                                href={link.disabled ? "" : link.to}
+                                class={`${link.disabled ? "text-white/50" : "hover:bg-green-600"} px-4 py-4 text-lg bg-transparent transition-all duration-300 border-b border-b-white/20 last:border-b-0 mobile-menu-item`}
+                                style={`animation-delay: ${index * 0.1}s;`}
+                            >
+                                <span class="flex flex-row items-center gap-3 font-semibold">
+                                    <Icon
+                                        class="inline size-5"
+                                        name={link.icon}
+                                    />
+                                    {link.name}
+                                </span>
+                            </a>
+                        ))
+                    }
+                </div>
+            </div>
+        </div>
     </div>
 </nav>
+
+<style>
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInItem {
+        from {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .mobile-menu {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .mobile-menu-item {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    #mobile-menu-toggle:checked ~ .mobile-menu {
+        max-height: 500px;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    #mobile-menu-toggle:checked ~ .mobile-menu .mobile-menu-item {
+        animation: fadeInItem 0.4s ease-out forwards;
+    }
+
+    .burger-icon {
+        display: block;
+    }
+
+    .cross-icon {
+        display: none;
+    }
+
+    #mobile-menu-toggle:checked + label .burger-icon {
+        display: none;
+    }
+
+    #mobile-menu-toggle:checked + label .cross-icon {
+        display: block;
+    }
+</style>
