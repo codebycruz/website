@@ -9,7 +9,7 @@ layout: "../../layouts/Post.astro"
 
 They're back and much cleaner.
 
-![changes](/posts/projects-changes.webp)
+![changes](/posts/projects-changes.avif)
 
 Look at all those changes..
 
@@ -17,7 +17,7 @@ Look at all those changes..
 
 I enjoyed working on the tag system. They get custom styling and icons for specific tooling I thought were significant.
 
-[![tags](/posts/tags.webp)](/projects)
+[![tags](/posts/tags.avif)](/projects)
 
 Pretty snazzy.
 

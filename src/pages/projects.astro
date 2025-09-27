@@ -1,6 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Tag from "../components/Tag.astro";
+import { Image } from "astro:assets";
+import patternImage from "../../public/pattern.avif";
 
 const projects = (await Promise.all(
     Object.entries(import.meta.glob("./projects/*.astro")).map(
@@ -51,12 +53,14 @@ projects.sort((a, b) => a.order - b.order);
                     <div class="flex-1 overflow-hidden rounded-lg">
                         {project.cover ? (
                             <img
+                                alt={project.name}
                                 src={project.cover}
                                 class={`${project.coverStyle ?? ""} h-56 lg:h-96 w-full object-contain drop-shadow-lg`}
                             />
                         ) : (
-                            <img
-                                src="/pattern.webp"
+                            <Image
+                                alt={project.name}
+                                src={patternImage}
                                 class="h-56 lg:h-96 w-full object-cover drop-shadow-lg"
                             />
                         )}
