@@ -8,6 +8,8 @@ const links = [
     { name: "About", to: "/about", icon: "mdi:about" },
     { name: "Resume", to: "/David_Cruz_Resume.pdf", icon: "mdi:resume" },
 ];
+
+const currentPath = Astro.url.pathname;
 ---
 
 <nav
@@ -20,8 +22,8 @@ const links = [
             {
                 links.map((link) => (
                     <a
-                        href={link.disabled ? "" : link.to}
-                        class={`${link.disabled ? "text-white/50" : "hover:bg-green-600"} px-3 py-2 lg:px-6 lg:py-4 text-lg bg-transparent transition duration-300`}
+                        href={link.to}
+                        class={`hover:bg-green-600 px-3 py-2 lg:px-6 lg:py-4 text-lg transition duration-300`}
                     >
                         <span class="flex flex-row items-center gap-2 font-semibold">
                             {link.name}
@@ -72,8 +74,8 @@ const links = [
                     {
                         links.map((link, index) => (
                             <a
-                                href={link.disabled ? "" : link.to}
-                                class={`${link.disabled ? "text-white/50" : "hover:bg-green-600"} px-4 py-4 text-lg bg-transparent transition-all duration-300 border-b border-b-white/20 last:border-b-0 mobile-menu-item`}
+                                href={link.to}
+                                class={`hover:bg-green-600 px-4 py-4 text-lg bg-transparent transition-all duration-300 border-b border-b-white/20 last:border-b-0 mobile-menu-item`}
                                 style={`animation-delay: ${index * 0.1}s;`}
                             >
                                 <span class="flex flex-row items-center gap-3 font-semibold">
