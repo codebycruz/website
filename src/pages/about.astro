@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<Layout>
+    <div class="max-w-6xl mx-auto px-4 py-12">
+        <h1 class="text-center text-green-600 font-bold text-4xl mb-16">
+            About
+        </h1>
+
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+            <div class="space-y-6">
+                <h2 class="text-green-600 font-bold text-xl">👋 I'm David</h2>
+
+                <p class="leading-relaxed">
+                    Glad you found this part of the site. This is more in detail
+                    about who I am than I'd bother going into for a CV.
+                </p>
+
+                <p class="leading-relaxed"></p>
+
+                <h2 class="text-green-600 font-bold text-xl mt-8">What I Do</h2>
+
+                <p class="leading-relaxed">
+                    I build software, for myself or for people if you want to
+                    contract me. You can find some of my projects <a
+                        href="/projects"
+                        class="underline text-blue-400">here.</a
+                    >
+                </p>
+
+                <h2 class="text-green-600 font-bold text-xl mt-8">
+                    Reaching out
+                </h2>
+
+                <p class="leading-relaxed">
+                    You can reach out to me most preferably via my email, <a
+                        href="mailto:david@codebycruz.com"
+                        class="underline text-blue-400 inline"
+                        >david@codebycruz.com</a
+                    >. Additionally, I do have an account on <a
+                        href="https://x.com/codebycruz"
+                        class="underline text-blue-400 inline">𝕏</a
+                    > and you can technically reach out via <a
+                        href="https://www.linkedin.com/in/codebycruz"
+                        class="underline text-blue-400 inline">LinkedIn.</a
+                    >
+                </p>
+            </div>
+
+            <div class="flex justify-center md:justify-end">
+                <a
+                    href="https://www.linkedin.com/in/codebycruz"
+                    class="relative block transition duration-300 hover:scale-105"
+                    aria-label="LinkedIn Profile"
+                >
+                    <img
+                        src="./portrait-transparent.png"
+                        alt="Portrait"
+                        class="w-80 h-80 object-cover bg-white object-bottom rounded-lg shadow-lg"
+                    />
+                    <div
+                        class="absolute bottom-4 right-4 bg-blue-600 rounded-full p-3 shadow-lg hover:bg-blue-700 transition duration-300"
+                    >
+                        <Icon name="mdi:linkedin" class="w-6 h-6 text-white" />
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</Layout>
