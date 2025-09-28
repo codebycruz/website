@@ -35,7 +35,11 @@ const links = [
                     href={link.to}
                     aria-label={link.label}
                 >
-                    {"icon" in link ? <Icon name={link.icon} /> : link.text}
+                    {"icon" in link ? (
+                        <Icon name={link.icon} size="32" />
+                    ) : (
+                        link.text
+                    )}
                 </a>
             ))
         }
