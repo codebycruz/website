@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import Layout from "../layouts/Layout.astro";
+import Contributions from "../components/Contributions.astro";
 import { linkedin, x, github } from "../data/info";
 import { getAllPosts } from "../data/posts";
 
@@ -9,7 +10,15 @@ posts.sort((a, b) => new Date(b.published) - new Date(a.published));
 ---
 
 <Layout>
-    <section class="flex flex-row justify-center">
+    <!-- Background Contributions -->
+    <div
+        class="fixed inset-0 opacity-10 pointer-events-none z-0 flex items-center justify-center"
+        style="transform: scale(3) translateY(-2.5%);"
+    >
+        <Contributions showLegend={false} />
+    </div>
+
+    <section class="flex flex-row justify-center relative z-10">
         <div
             class="flex flex-col lg:flex-row gap-4 lg:gap-8 w-full lg:w-2/3 px-4 lg:px-0"
         >

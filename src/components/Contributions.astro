@@ -1,0 +1,221 @@
+---
+import { getGithubContributions } from "../data/contributions.ts";
+
+interface Props {
+    showLegend?: boolean;
+}
+
+const { showLegend = true } = Astro.props;
+
+const data = await getGithubContributions();
+const currentYear = new Date().getFullYear();
+const currentDate = new Date();
+
+// Process contributions from API (already for last year)
+const contributions = data.contributions.map((contrib) => ({
+    ...contrib,
+    date: new Date(contrib.date),
+}));
+
+// Group contributions by weeks (7 days each)
+const weeks = [];
+for (let i = 0; i < contributions.length; i += 7) {
+    weeks.push(contributions.slice(i, i + 7));
+}
+---
+
+<div class="contributions-container">
+    <div class="contributions-graph">
+        <div class="contributions-grid">
+            {
+                weeks.map((week, weekIndex) => (
+                    <div class="week-column">
+                        {week.map((day, dayIndex) => (
+                            <div
+                                class={`contribution-day level-${day.level}`}
+                                title={`${day.count} contributions on ${day.date.toDateString()}`}
+                                data-count={day.count}
+                                data-date={day.date.toISOString().split("T")[0]}
+                            />
+                        ))}
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+
+    <!-- Legend -->
+    {
+        showLegend && (
+            <div class="legend">
+                <span>Less</span>
+                <div class="legend-squares">
+                    <div class="contribution-day level-0" />
+                    <div class="contribution-day level-1" />
+                    <div class="contribution-day level-2" />
+                    <div class="contribution-day level-3" />
+                    <div class="contribution-day level-4" />
+                </div>
+                <span>More</span>
+            </div>
+        )
+    }
+</div>
+
+<style>
+    .contributions-container {
+        font-family:
+            -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial,
+            sans-serif;
+        font-size: 12px;
+        color: #7d8590;
+    }
+
+    .contributions-graph {
+        position: relative;
+        display: inline-block;
+        padding: 16px 0 0 0;
+    }
+
+    .month-labels {
+        display: grid;
+        grid-template-columns: 28px repeat(53, 11px);
+        gap: 3px;
+        margin-bottom: 8px;
+        height: 15px;
+    }
+
+    .month-label {
+        font-size: 10px;
+        color: #7d8590;
+        text-align: left;
+    }
+
+    .day-labels {
+        position: absolute;
+        left: 0;
+        top: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        font-size: 9px;
+        color: #7d8590;
+        width: 25px;
+    }
+
+    .day-labels span {
+        height: 11px;
+        line-height: 11px;
+        margin-bottom: 3px;
+    }
+
+    .day-labels span:nth-child(1) {
+        margin-top: 11px;
+    }
+    .day-labels span:nth-child(2) {
+        margin-top: 11px;
+    }
+    .day-labels span:nth-child(3) {
+        margin-top: 11px;
+    }
+
+    .contributions-grid {
+        display: flex;
+        gap: 3px;
+        margin-left: 28px;
+    }
+
+    .week-column {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .contribution-day {
+        width: 11px;
+        height: 11px;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: all 0.1s ease-in-out;
+    }
+
+    .contribution-day:hover {
+        stroke: rgba(255, 255, 255, 0.5);
+        stroke-width: 1px;
+        transform: scale(1.1);
+    }
+
+    /* GitHub-like color scheme */
+    .level-0 {
+        background-color: #161b22;
+        border: 1px solid #21262d;
+    }
+
+    .level-1 {
+        background-color: #0e4429;
+        border: 1px solid #0e4429;
+    }
+
+    .level-2 {
+        background-color: #006d32;
+        border: 1px solid #006d32;
+    }
+
+    .level-3 {
+        background-color: #26a641;
+        border: 1px solid #26a641;
+    }
+
+    .level-4 {
+        background-color: #39d353;
+        border: 1px solid #39d353;
+    }
+
+    /* Light theme colors */
+    @media (prefers-color-scheme: light) {
+        .level-0 {
+            background-color: #ebedf0;
+            border: 1px solid #ebedf0;
+        }
+
+        .level-1 {
+            background-color: #9be9a8;
+            border: 1px solid #9be9a8;
+        }
+
+        .level-2 {
+            background-color: #40c463;
+            border: 1px solid #40c463;
+        }
+
+        .level-3 {
+            background-color: #30a14e;
+            border: 1px solid #30a14e;
+        }
+
+        .level-4 {
+            background-color: #216e39;
+            border: 1px solid #216e39;
+        }
+    }
+
+    .legend {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin-top: 8px;
+        font-size: 11px;
+        color: #7d8590;
+        justify-content: flex-end;
+    }
+
+    .legend-squares {
+        display: flex;
+        gap: 2px;
+    }
+
+    .legend-squares .contribution-day {
+        width: 10px;
+        height: 10px;
+    }
+</style>
