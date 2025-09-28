@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
+import Contributions from "../components/Contributions.astro";
 ---
 
 <!doctype html>
@@ -36,6 +37,13 @@ import Navbar from "../components/Navbar.astro";
     </head>
 
     <body class="bg-neutral-900 text-white">
+        <div
+            class="fixed inset-0 opacity-10 pointer-events-none -z-10 flex items-center justify-center"
+            style="transform: scale(3) translateY(-2.5%);"
+        >
+            <Contributions showLegend={false} />
+        </div>
+
         <div class="flex flex-col items-center">
             <div
                 class="max-w-2xl sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-[1920px] w-full"
