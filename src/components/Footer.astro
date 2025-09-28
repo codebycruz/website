@@ -1,5 +1,9 @@
 ---
 import { Icon } from "astro-icon/components";
+import { linkedin, x } from "../data/info";
+import { github } from "../data/info";
+import { email } from "../data/info";
+import { rss } from "../data/info";
 
 type LinkInfo = { to: string; label: string } & (
     | { text: string }
@@ -7,24 +11,24 @@ type LinkInfo = { to: string; label: string } & (
 );
 
 const links = [
-    { to: "https://x.com/codebycruz", text: "𝕏", label: "𝕏" },
+    { to: x, text: "𝕏", label: "𝕏" },
     {
-        to: "https://www.linkedin.com/in/codebycruz",
+        to: linkedin,
         icon: "mdi:linkedin",
         label: "LinkedIn",
     },
     {
-        to: "https://github.com/DvvCz",
+        to: github,
         icon: "mdi:github",
         label: "Github",
     },
     {
-        to: "mailto:david@codebycruz.com",
+        to: `mailto:${email}`,
         icon: "mdi:email",
         label: "Mail",
     },
     {
-        to: "/rss.xml",
+        to: rss,
         icon: "mdi:rss",
         label: "RSS Feed",
     },

@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
+import { email, linkedin, x } from "../data/info";
 ---
 
 <Layout>
@@ -38,14 +39,14 @@ import { Icon } from "astro-icon/components";
 
                 <p class="leading-relaxed">
                     You can reach out to me most preferably via my email, <a
-                        href="mailto:david@codebycruz.com"
+                        href={`mailto:${email}`}
                         class="underline text-blue-400 inline"
                         >david@codebycruz.com</a
                     >. Additionally, I do have an account on <a
-                        href="https://x.com/codebycruz"
+                        href={x}
                         class="underline text-blue-400 inline">𝕏</a
                     > and you can technically reach out via <a
-                        href="https://www.linkedin.com/in/codebycruz"
+                        href={linkedin}
                         class="underline text-blue-400 inline">LinkedIn.</a
                     >
                 </p>
@@ -53,7 +54,7 @@ import { Icon } from "astro-icon/components";
 
             <div class="flex justify-center md:justify-end">
                 <a
-                    href="https://www.linkedin.com/in/codebycruz"
+                    href={linkedin}
                     class="relative block transition duration-300 hover:scale-105"
                     aria-label="LinkedIn Profile"
                 >

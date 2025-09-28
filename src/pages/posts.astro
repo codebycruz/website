@@ -3,27 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import PatternBackground from "../components/PatternBackground.astro";
 import Tag from "../components/Tag.astro";
 import { Icon } from "astro-icon/components";
+import { getAllPosts } from "../data/posts";
 
-const posts = (await Promise.all(
-    Object.entries(import.meta.glob("./posts/*.md")).map(
-        async ([path, loader]) => {
-            const post = await loader();
-            const filename = path.split("/").pop()?.replace(".md", "") || "";
-
-            return {
-                filename,
-                ...post.frontmatter,
-            };
-        },
-    ),
-)) as {
-    published: string;
-    timeToRead: number;
-    title: string;
-    desc: string;
-    tags: string[];
-}[];
-
+const posts = await getAllPosts();
 posts.sort((a, b) => new Date(b.published) - new Date(a.published));
 ---
 

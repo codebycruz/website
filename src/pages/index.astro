@@ -1,29 +1,11 @@
 ---
 import { Icon } from "astro-icon/components";
 import Layout from "../layouts/Layout.astro";
+import { linkedin, x, github } from "../data/info";
+import { getAllPosts } from "../data/posts";
 
-const posts = await Promise.all(
-    Object.entries(import.meta.glob("./posts/*.md")).map(
-        async ([path, loader]) => {
-            const post = await loader();
-            const filename = path.split("/").pop()?.replace(".md", "") || "";
-
-            return {
-                filename,
-                ...post.frontmatter,
-            };
-        },
-    ),
-);
-
+const posts = await getAllPosts();
 posts.sort((a, b) => new Date(b.published) - new Date(a.published));
-
-const newsEntries = posts.slice(0, 3).map((post) => ({
-    title: post.title,
-    desc: post.desc,
-    to: `/posts/${post.filename}`,
-    published: post.published,
-}));
 ---
 
 <Layout>
@@ -43,7 +25,7 @@ const newsEntries = posts.slice(0, 3).map((post) => ({
                     <!-- Social Links Row -->
                     <div class="flex items-center gap-1 mt-8">
                         <a
-                            href="https://x.com/codebycruz"
+                            href={x}
                             target="_blank"
                             rel="noopener noreferrer"
                             class="text-2xl hover:text-green-600 p-4 transition-colors"
@@ -52,7 +34,7 @@ const newsEntries = posts.slice(0, 3).map((post) => ({
                             𝕏
                         </a>
                         <a
-                            href="https://linkedin.com/in/codebycruz"
+                            href={linkedin}
                             target="_blank"
                             rel="noopener noreferrer"
                             class="text-2xl hover:text-green-600 p-4 transition-colors"
@@ -61,7 +43,7 @@ const newsEntries = posts.slice(0, 3).map((post) => ({
                             <Icon name="mdi:linkedin" size="24" />
                         </a>
                         <a
-                            href="https://github.com/DvvCz"
+                            href={github}
                             target="_blank"
                             rel="noopener noreferrer"
                             class="text-2xl hover:text-green-600 p-4 transition-colors"
@@ -85,9 +67,9 @@ const newsEntries = posts.slice(0, 3).map((post) => ({
                     class="border-y border-y-white/50 h-full flex flex-col gap-4 pt-4 pb-4"
                 >
                     {
-                        newsEntries.map((entry, index) => (
+                        posts.slice(0, 3).map((entry, index) => (
                             <a
-                                href={entry.to}
+                                href={entry.link}
                                 class="p-2 border border-white/50 rounded-lg post-item"
                                 style={`animation-delay: ${index * 0.2}s;`}
                             >
