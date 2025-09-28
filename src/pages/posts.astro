@@ -16,7 +16,7 @@ posts.sort((a, b) => new Date(b.published) - new Date(a.published));
         {
             posts.map((post) => (
                 <a
-                    href={`/posts/${post.filename}`}
+                    href={post.link}
                     class="flex flex-col max-w-xl md:max-w-3xl lg:max-w-5xl w-full transition-colors duration-300 hover:bg-black/20 rounded-lg p-4 bg-black/5"
                 >
                     <div class="overflow-hidden rounded-lg bg-black">
@@ -52,10 +52,7 @@ posts.sort((a, b) => new Date(b.published) - new Date(a.published));
                                         class="inline size-4"
                                         name="mdi:clock-outline"
                                     />
-                                    {Math.ceil(
-                                        (post.desc?.length || 0) / 1000,
-                                    ) || 1}{" "}
-                                    min
+                                    {post.minutesToRead} min
                                 </span>
                             </div>
                             {post.tags && (

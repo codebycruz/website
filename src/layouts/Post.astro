@@ -1,9 +1,13 @@
 ---
+import "../styles/post.css";
+
 import Layout from "./Layout.astro";
 import { Icon } from "astro-icon/components";
 import Tag from "../components/Tag.astro";
-const { frontmatter } = Astro.props;
-import "../styles/post.css";
+import { calculatePostMinutesToRead, type MdPostProps } from "../data/posts";
+
+const { frontmatter, rawContent } = Astro.props as MdPostProps;
+const minutesToRead = calculatePostMinutesToRead(await rawContent());
 ---
 
 <Layout>
@@ -26,7 +30,7 @@ import "../styles/post.css";
                 </span>
                 <span class="flex items-center gap-1">
                     <Icon class="inline size-4" name="mdi:clock-outline" />
-                    {Math.ceil((frontmatter.desc?.length || 500) / 200) || 3} min
+                    {minutesToRead} min
                 </span>
             </div>
             {

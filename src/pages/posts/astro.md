@@ -3,7 +3,6 @@ title: "🚀 Hello, Astro!"
 desc: "A shiny new website brought to you with Astro"
 published: 2025-09-25
 layout: "../../layouts/Post.astro"
-timeToRead: 1
 tags: ["Meta", "Astro", "HTML", "TypeScript", "Bun"]
 ---
 
