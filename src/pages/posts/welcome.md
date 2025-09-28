@@ -3,9 +3,8 @@ title: "👋 Welcome"
 desc: "My first post on the new website. Introduction to how I expect to run this blog and why you might want to tune in."
 published: 2024-11-13
 layout: "../../layouts/Post.astro"
+tags: ["Meta", "Rust", "Compilers", "Linux"]
 ---
-
-# Welcome
 
 Welcome to my blog!
 

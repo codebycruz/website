@@ -1,28 +1,46 @@
 ---
 import Layout from "./Layout.astro";
+import { Icon } from "astro-icon/components";
+import Tag from "../components/Tag.astro";
 const { frontmatter } = Astro.props;
 import "../styles/post.css";
 ---
 
 <Layout>
-    <div class="px-20 pt-10">
-        <div class="flex flex-row w-full justify-between">
-            <span class="text-lg">By {frontmatter.author ?? "David Cruz"}</span>
-            <span>~X minute read</span>
+    <div class="px-4 lg:px-20 pt-10">
+        <h1 class="font-bold text-4xl mb-4">{frontmatter.title}</h1>
+
+        <div class="flex flex-wrap items-center gap-4 mb-6 text-sm">
+            <div class="flex flex-wrap items-center gap-4 text-gray-500">
+                <span>
+                    {
+                        new Date(frontmatter.published).toLocaleDateString(
+                            "en-US",
+                            {
+                                year: "numeric",
+                                month: "short",
+                                day: "numeric",
+                            },
+                        )
+                    }
+                </span>
+                <span class="flex items-center gap-1">
+                    <Icon class="inline size-4" name="mdi:clock-outline" />
+                    {Math.ceil((frontmatter.desc?.length || 500) / 200) || 3} min
+                </span>
+            </div>
+            {
+                frontmatter.tags && (
+                    <div class="flex flex-wrap gap-2">
+                        {frontmatter.tags.map((tag) => (
+                            <Tag text={tag} />
+                        ))}
+                    </div>
+                )
+            }
         </div>
 
-        <span class="text-gray-300">
-            ✍️ {
-                new Date(frontmatter.published).toLocaleDateString("en-US", {
-                    weekday: "long",
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                })
-            }
-        </span>
-
-        <div class="post mt-4 mb-20">
+        <div class="post mt-6 mb-20">
             <slot />
         </div>
     </div>

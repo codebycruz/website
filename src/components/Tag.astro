@@ -32,6 +32,8 @@ const specialStyle =
             html: "bg-orange-600/20",
             c: "bg-blue-700/20",
             systemverilog: "bg-green-600/20",
+            bun: "bg-amber-200/30",
+            meta: "bg-black/20",
         } as Record<string, string>
     )[text.toLowerCase()] ?? "bg-white/20";
 
@@ -64,6 +66,8 @@ const specialIcon = (
         html: "mdi:language-html5",
         c: "mdi:language-c",
         systemverilog: "mdi:chip",
+        bun: "simple-icons:bun",
+        meta: "mdi:drama-masks",
     } as Record<string, string>
 )[text.toLowerCase()];
 ---

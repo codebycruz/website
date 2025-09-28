@@ -1,8 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import PatternBackground from "../components/PatternBackground.astro";
+import Tag from "../components/Tag.astro";
+import { Icon } from "astro-icon/components";
 
-const posts = await Promise.all(
+const posts = (await Promise.all(
     Object.entries(import.meta.glob("./posts/*.md")).map(
         async ([path, loader]) => {
             const post = await loader();
@@ -14,7 +16,13 @@ const posts = await Promise.all(
             };
         },
     ),
-);
+)) as {
+    published: string;
+    timeToRead: number;
+    title: string;
+    desc: string;
+    tags: string[];
+}[];
 
 posts.sort((a, b) => new Date(b.published) - new Date(a.published));
 ---
@@ -27,7 +35,7 @@ posts.sort((a, b) => new Date(b.published) - new Date(a.published));
             posts.map((post) => (
                 <a
                     href={`/posts/${post.filename}`}
-                    class="flex flex-col max-w-xl md:max-w-3xl lg:max-w-5xl w-full transition-colors duration-300 hover:bg-black/10 rounded-lg p-4"
+                    class="flex flex-col max-w-xl md:max-w-3xl lg:max-w-5xl w-full transition-colors duration-300 hover:bg-black/20 rounded-lg p-4 bg-black/5"
                 >
                     <div class="overflow-hidden rounded-lg bg-black">
                         {post.preview ? (
@@ -45,20 +53,36 @@ posts.sort((a, b) => new Date(b.published) - new Date(a.published));
                     </div>
 
                     <div class="p-4 md:p-6">
-                        <div class="flex flex-col md:flex-row md:justify-between mb-2">
-                            <span class="font-bold text-2xl">{post.title}</span>
-                            <span class="text-gray-400">
-                                ✍️
-                                {new Date(post.published).toLocaleDateString(
-                                    "en-US",
-                                    {
-                                        weekday: "long",
+                        <h2 class="font-bold text-2xl mb-2">{post.title}</h2>
+                        <div class="flex flex-wrap items-center gap-4 mb-3 text-sm">
+                            <div class="flex flex-wrap items-center gap-4 text-gray-500">
+                                <span>
+                                    {new Date(
+                                        post.published,
+                                    ).toLocaleDateString("en-US", {
                                         year: "numeric",
-                                        month: "long",
+                                        month: "short",
                                         day: "numeric",
-                                    },
-                                )}
-                            </span>
+                                    })}
+                                </span>
+                                <span class="flex items-center gap-1">
+                                    <Icon
+                                        class="inline size-4"
+                                        name="mdi:clock-outline"
+                                    />
+                                    {Math.ceil(
+                                        (post.desc?.length || 0) / 1000,
+                                    ) || 1}{" "}
+                                    min
+                                </span>
+                            </div>
+                            {post.tags && (
+                                <div class="flex flex-wrap gap-2">
+                                    {post.tags.map((tag) => (
+                                        <Tag text={tag} />
+                                    ))}
+                                </div>
+                            )}
                         </div>
                         <p class="text-lg">{post.desc}</p>
                     </div>

@@ -3,9 +3,8 @@ title: "🛠️ Projects are back!"
 desc: "Projects view is up and running again with the Astro rewrite. Much cleaner, and information is presented nicer."
 published: 2025-09-26
 layout: "../../layouts/Post.astro"
+tags: ["Meta", "Astro"]
 ---
-
-# Projects are back!
 
 They're back and much cleaner.
 
