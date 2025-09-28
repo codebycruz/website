@@ -54,6 +54,7 @@ projects.sort((a, b) => a.order - b.order);
                             <img
                                 alt={project.name}
                                 src={project.cover}
+                                loading="lazy"
                                 class={`${project.coverStyle ?? ""} h-56 lg:h-96 w-full object-contain drop-shadow-lg`}
                             />
                         ) : (
