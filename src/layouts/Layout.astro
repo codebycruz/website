@@ -3,10 +3,11 @@ import "../styles/global.css";
 import Footer from "../components/Footer.astro";
 import Navbar from "../components/Navbar.astro";
 import Contributions from "../components/Contributions.astro";
+import { ClientRouter } from "astro:transitions";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" transition:name="root" transition:animate="none">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
@@ -33,6 +34,8 @@ import Contributions from "../components/Contributions.astro";
             content="David Cruz Portfolio - codebycruz"
         />
 
+        <ClientRouter />
+
         <title>codebycruz</title>
     </head>
 
@@ -49,7 +52,11 @@ import Contributions from "../components/Contributions.astro";
                 class="max-w-2xl sm:max-w-3xl md:max-w-5xl lg:max-w-7xl xl:max-w-[1920px] w-full"
             >
                 <Navbar />
-                <slot />
+
+                <main transition:animate="slide">
+                    <slot />
+                </main>
+
                 <Footer />
             </div>
         </div>
