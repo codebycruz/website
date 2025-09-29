@@ -6,7 +6,9 @@ import { Icon } from "astro-icon/components";
 import { getAllPosts } from "../data/posts";
 
 const posts = await getAllPosts();
-posts.sort((a, b) => new Date(b.published) - new Date(a.published));
+posts.sort(
+    (a, b) => new Date(b.published).getTime() - new Date(a.published).getTime(),
+);
 ---
 
 <Layout>
@@ -35,8 +37,16 @@ posts.sort((a, b) => new Date(b.published) - new Date(a.published));
                     </div>
 
                     <div class="p-4 md:p-6">
-                        <h2 class="font-bold text-2xl mb-2">{post.title}</h2>
-                        <div class="flex flex-wrap items-center gap-4 mb-3 text-sm">
+                        <h2
+                            class="font-bold text-2xl mb-2"
+                            transition:name={`post-title-${post.filename}`}
+                        >
+                            {post.title}
+                        </h2>
+                        <div
+                            class="flex flex-wrap items-center gap-4 mb-3 text-sm"
+                            transition:name={`post-meta-${post.filename}`}
+                        >
                             <div class="flex flex-wrap items-center gap-4 text-gray-500">
                                 <span>
                                     {new Date(

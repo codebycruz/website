@@ -6,7 +6,9 @@ import { linkedin, x, github } from "../data/info";
 import { getAllPosts } from "../data/posts";
 
 const posts = await getAllPosts();
-posts.sort((a, b) => new Date(b.published) - new Date(a.published));
+posts.sort(
+    (a, b) => new Date(b.published).getTime() - new Date(a.published).getTime(),
+);
 ---
 
 <Layout>
@@ -75,10 +77,16 @@ posts.sort((a, b) => new Date(b.published) - new Date(a.published));
                                 style={`animation-delay: ${index * 0.2}s;`}
                             >
                                 <div class="flex flex-col mb-1">
-                                    <h2 class="font-semibold text-lg">
+                                    <h2
+                                        class="font-semibold text-lg"
+                                        transition:name={`post-title-${entry.filename}`}
+                                    >
                                         {entry.title}
                                     </h2>
-                                    <div class="flex flex-wrap items-center gap-4 mt-1 text-sm">
+                                    <div
+                                        class="flex flex-wrap items-center gap-4 mt-1 text-sm"
+                                        transition:name={`post-meta-${entry.filename}`}
+                                    >
                                         <div class="flex flex-wrap items-center gap-4 text-gray-400">
                                             <span>
                                                 {new Date(
