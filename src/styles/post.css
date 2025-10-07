@@ -71,7 +71,13 @@
 .post p {
     margin: 1.5rem 0;
     line-height: 1.7;
-    color: #ffffff;
+    color: black;
+}
+
+@media (prefers-color-scheme: dark) {
+    .post p {
+        color: #ffffff;
+    }
 }
 
 /* First paragraph after headings should have less top margin */
