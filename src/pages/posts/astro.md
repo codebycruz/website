@@ -36,7 +36,7 @@ Instead, everything is statically generated (or optionally serverside generated)
 
 It's also incredibly fast, and real companies (not just startups...) rely on it.
 
-So yeah. I won't stop using Solid (and React) for more reactive projects, like [my Invidious frontend project](https://github.com/DvvCz/riptire), but Astro is my new favorite framework for sure.
+So yeah. I won't stop using Solid (and React) for more reactive projects, like [my Invidious frontend project](https://github.com/codebycruz/riptire), but Astro is my new favorite framework for sure.
 
 ## Conclusion
 

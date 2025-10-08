@@ -5,7 +5,7 @@ export async function getGithubContributions() {
 	try {
 		return (
 			await fetch(
-				"https://github-contributions-api.jogruber.de/v4/dvvcz?y=last",
+				"https://github-contributions-api.jogruber.de/v4/codebycruz?y=last",
 			)
 		).json() as Promise<{
 			total: Record<string, number>;
