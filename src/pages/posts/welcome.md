@@ -36,7 +36,7 @@ Here's a few things I might write about:
 - Web Development
 - The Linux Experience
 - Rust Programming
-- [Anything on my Github Profile](https://github.com/DvvCz)
+- [Anything on my Github Profile](https://github.com/codebycruz)
 
 In some way or for some extended period of time I've had a lot of experience with everything above.
 
