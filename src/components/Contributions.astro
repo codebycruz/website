@@ -10,12 +10,14 @@ const { showLegend = true } = Astro.props;
 const data = await getGithubContributions();
 
 // Process contributions from API (already for last year)
-const contributions = data.contributions.map((contrib) => contrib.level);
+const contributions = data?.contributions?.map((contrib) => contrib.level);
 
 // Group contributions by weeks (7 days each)
 const weeks = [];
-for (let i = 0; i < contributions.length; i += 7) {
-    weeks.push(contributions.slice(i, i + 7));
+if (contributions) {
+    for (let i = 0; i < contributions.length; i += 7) {
+        weeks.push(contributions.slice(i, i + 7));
+    }
 }
 ---
 
