@@ -1,6 +1,6 @@
 ---
-title: "Writing a dead simple language in Lua"
-desc: ""
+title: "🌕 Writing a dead simple language in Lua"
+desc: "Writing a compiler doesn't have to be hard. Here's how to do it in Lua."
 published: 2025-11-22
 layout: "../../layouts/Post.astro"
 tags: ["Lua", "Compilers", "Programming", "Tutorial"]
