@@ -3,6 +3,7 @@ title: "🖌️ Painting from scratch: Arisu"
 desc: "How I wrote a paint program entirely from scratch in LuaJIT (basically C)"
 published: 2025-12-06
 layout: "../../layouts/Post.astro"
+preview: "/posts/arisu/v0.4.0.avif"
 tags: ["Lua", "C", "OpenGL", "Linux", "Windows", "Systems"]
 ---
 
@@ -23,7 +24,7 @@ I mention all of those GUI toolkits because I made the decision to implement thi
 
 ## Show, don't tell
 
-[![v4](/posts/arisu/v0.4.0.png)](https://github.com/codebycruz/arisu)
+[![v4](/posts/arisu/v0.4.0.avif)](https://github.com/codebycruz/arisu)
 
 > This is a screenshot of Arisu 0.4.0, running on Windows 11. Pretty much every feature you see there that isn't grayed out is implemented and usable.
 
@@ -32,7 +33,7 @@ I mention all of those GUI toolkits because I made the decision to implement thi
 - Selection box
 - Basic shape tools (rectangle, ellipse, line)
 
-[![v1](/posts/arisu/v0.1.0.png)](https://github.com/codebycruz/arisu)
+[![v1](/posts/arisu/v0.1.0.avif)](https://github.com/codebycruz/arisu)
 
 > If you're curious, here's a screenshot of 0.1.0 on Linux, although it's not too different.
 
@@ -105,7 +106,7 @@ I chose LuaJIT after originally choosing Rust because I knew Rust's memory safet
 To support icons at all, I needed to create an image loader.
 I chose to support two types of images, PPM[^ppm] and QOI[^qoi]. QOI is the primarily used format as it supports alpha unlike PPM and is more widely supported.
 
-![icons](/posts/arisu/icons.png)
+![icons](/posts/arisu/icons.avif)
 
 > Some icons rendered in Arisu.
 
@@ -180,7 +181,7 @@ I went with bitmap fonts / a text atlas as it is quite simple to implement and c
 
 Of course it's nowhere near perfect. I only have a single sized font which is 16px tall.
 
-![text](/posts/arisu/shapes.png)
+![text](/posts/arisu/shapes.avif)
 
 > This is a screenshot of the text rendering in Arisu.
 
