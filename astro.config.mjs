@@ -11,6 +11,12 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
 	site: "https://codebycruz.com",
 
+	markdown: {
+		shikiConfig: {
+			theme: "dark-plus",
+		},
+	},
+
 	vite: {
 		plugins: [tailwindcss()],
 	},
