@@ -1,4 +1,5 @@
 ---
+import { github } from "../../data/info";
 import Layout from "../../layouts/Layout.astro";
 
 export const name = "qun-rs";
@@ -6,6 +7,7 @@ export const order = 4;
 export const desc =
     "An evolution of Qun, written in Rust with WGPU, with a focus on performance and advanced rendering techniques";
 export const cover = "/qun-rs.avif";
+export const link = `${github}/qun-rs`;
 export const tags = [
     "Rust",
     "Technical Writing",
@@ -15,8 +17,7 @@ export const tags = [
     "GPU",
     "Realtime Rendering",
 ];
-export const stealth = true;
-export const status = "Ongoing";
+export const status = "Hiatus";
 ---
 
 <Layout>
