@@ -1,0 +1,34 @@
+---
+const repo = "codebycruz/website";
+const repoId = "R_kgDOJYJ4xA";
+const category = "Announcements";
+const categoryId = "DIC_kwDOJYJ4xM4COD69";
+---
+
+<div id="giscus" class="my-20"></div>
+
+<script is:inline define:vars={{ repo, repoId, category, categoryId }}>
+    function initGiscus() {
+        const giscusDiv = document.getElementById("giscus");
+        if (giscusDiv && !giscusDiv.hasChildNodes()) {
+            const script = document.createElement("script");
+            script.src = "https://giscus.app/client.js";
+            script.setAttribute("data-repo", repo);
+            script.setAttribute("data-repo-id", repoId);
+            script.setAttribute("data-category", category);
+            script.setAttribute("data-category-id", categoryId);
+            script.setAttribute("data-mapping", "pathname");
+            script.setAttribute("data-strict", "1");
+            script.setAttribute("data-reactions-enabled", "1");
+            script.setAttribute("data-emit-metadata", "0");
+            script.setAttribute("data-input-position", "bottom");
+            script.setAttribute("data-theme", "preferred_color_scheme");
+            script.setAttribute("data-lang", "en");
+            script.setAttribute("crossorigin", "anonymous");
+            script.async = true;
+            giscusDiv.appendChild(script);
+        }
+    }
+
+    document.addEventListener("astro:page-load", initGiscus);
+</script>
